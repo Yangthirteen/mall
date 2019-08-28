@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import com.lqc.entity.Message;
 
 public interface ContactDao {
-	@Insert("INSERT INTO `lqcmall`.`message` (`message_email`, `message_content`) VALUES (#{message_email}, #{message_content})")
+	@Insert("INSERT INTO `mall`.`message` (`message_email`, `message_content`) VALUES (#{message_email}, #{message_content})")
 	public int addMessage(Message message);
 	@Select("select * from message")
 	public List<Map<String, Object>> getMessage();

@@ -125,9 +125,6 @@ public class UserController {
 	}
 	 /**
 	 		* Description: 查询出所有用户 to 用户管理界面
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月1日 上午10:25:36
 	 	*/
 	@RequestMapping("userManager")
 	public String getAllUser(Model model){

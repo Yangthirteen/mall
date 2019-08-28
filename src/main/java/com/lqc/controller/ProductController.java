@@ -25,13 +25,6 @@ import com.lqc.entity.Product;
 import com.lqc.service.ProductService;
 import net.sf.json.JSONArray;
 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : ProductServlet 
- 		* @CreateDate : 2018年12月26日 下午3:18:23 
- 		* @lastModified : 2018年12月26日 下午3:18:23 
- 		* @version :   v1.0
- 	*/  
 @Controller
 public class ProductController {
 	@Resource
@@ -50,10 +43,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 获取商品及其商品类型到商品界面
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月29日 下午5:13:35
-	 		* Update Date Time: 
 	 		* @param request
 	 		* @return productAll productTypeAll
 	 	*/
@@ -67,10 +56,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 查询出商品的详细信息
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月28日 下午2:06:51.
-	 		* Update Date Time: 
 	 		* @param did product_dimg_id
 	 		* @param pid product_id
 	 		* @param ptid product_type_id
@@ -96,9 +81,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 把商品加入购物车
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月31日 下午1:24:06
 	 	*/
 	@RequestMapping("addCard")
 	public void addCard(String color,String size,String pid,String count,String uid,HttpSession session){
@@ -117,10 +99,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 把评论添加到数据库
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月28日 下午2:09:40.
-	 		* Update Date Time: 
 	 		* @param pid
 	 		* @param name
 	 		* @param email
@@ -147,9 +125,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 废弃
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月31日 下午1:25:03
 	 	*/
 	@RequestMapping("findDeail")
 	public void findDeail(String did,PrintWriter out){
@@ -160,9 +135,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 废弃
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月31日 下午1:26:22
 	 	*/
 	@RequestMapping("findDeailImg")
 	public void findDeailImg(String did,PrintWriter out){
@@ -174,9 +146,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 废弃
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月31日 下午1:26:56
 	 	*/
 	@RequestMapping("findDeailProduct")
 	public void findDeailProduct(String did,PrintWriter out){
@@ -187,10 +156,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 查询出用户的购物车信息
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月28日 下午10:34:46
-	 		* Update Date Time: 
 	 		* @param uid 用户id
 	 		* @param model card
 	 		* @return 转发到shoping-cart
@@ -206,10 +171,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 接收前台来的list数组 @RequestParam("cidList") List<Integer> cidlist
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月30日 下午10:16:38
-	 		* Update Date Time: 
 	 		* @param cidlist
 	 		* @param clist
 	 	*/
@@ -224,9 +185,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 异步删除  或者更改商品id
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月31日 下午1:27:59
 	 		* @param cid 购物车id
 	 		* @param count 商品数量
 	 	*/
@@ -240,16 +198,9 @@ public class ProductController {
 		}else{
 			productService.updateCartCountByCid(map);
 		}
-		
-			
-			
-		
 	}
 	 /**
 	 		* Description: 提交订单
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月31日 下午1:28:59
 	 	*/
 	@RequestMapping("subOreder")
 	public String subOrder(String sum,String name,String address,String phone,HttpSession session,RedirectAttributes redirectAttributes){
@@ -275,9 +226,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 支付回调 删除购物车列表
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月31日 上午11:10:48
 	 	*/
 	@RequestMapping("pay")
 	public void fdfs(String[] pay_id,String[] pay_no,String[] param){
@@ -305,9 +253,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 支付接口
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2018年12月31日 上午11:16:39
 	 	*/
 	@RequestMapping("codepay")
 	public String codePay(String price,String type,String pay_id,String param){
@@ -324,10 +269,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 获取用户订单 to my account(header)
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月1日 下午5:53:45
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("account")
 	public String userOrder(HttpSession session,Model model){
@@ -340,10 +281,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 获取订单信息 to orderManager
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月1日 下午8:19:34
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("orderManager")
 	public String orderManager(Model model){
@@ -353,9 +290,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 后台修改订单基础信息
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 上午10:26:32
 	 	*/
 	@RequestMapping("updateOrder")
 	public String updateOrder(String name,String mobile,String address,String Paystate,String state,String pid){
@@ -372,9 +306,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 主界面数据分页
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 上午10:31:58
 	 	*/
 	@RequestMapping("home-03")
 	public String homePage(Model model,String page){
@@ -391,10 +322,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 后台之商品查询
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 下午8:59:16
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("productManager")
 	public String productManager(Model model){
@@ -404,10 +331,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 后台之商品修改
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 下午9:16:18
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("updateProduct")
 	public String updateProduct(Product product){
@@ -416,10 +339,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 添加商品 限制只能上传图片
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 下午11:18:36
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("addProduct")
 	public String addProduct(@RequestParam("files") MultipartFile[] files,Product product,HttpServletRequest request){
@@ -442,10 +361,6 @@ public class ProductController {
 	}
 	/**
 		* Description: 删除商品信息
-		* Author: linQiCheng
-		* Version: 1.0
-		* Create Date Time: 2019年1月2日 下午11:22:36
-		* Update Date Time: 
 	*/
 	@RequestMapping("/{id}/deleteProduct")
 	public String deleteManager(@PathVariable int id){
@@ -454,10 +369,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 上传商品详细图
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月3日 下午5:34:11
-	 		* Update Date Time: 
 	 		* @return
 	 	*/
 	@RequestMapping("uploadPdimg")
@@ -483,9 +394,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 获取详细图片
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月3日 下午8:02:25
 	 	*/
 	@RequestMapping("imageManager")
 	public String imageManager(Model model){
@@ -495,9 +403,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 删除详细图片
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月3日 下午8:34:36
 	 	*/
 	@RequestMapping("{id}/deleteDimg")
 	public String deleteDimg(@PathVariable int id){
@@ -506,9 +411,6 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 更改详细图片
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月3日 下午8:34:51
 	 	*/
 	@RequestMapping("updateDimg")
 	public String updateDimg(@RequestParam("file") MultipartFile file,String id,String did,HttpServletRequest request){

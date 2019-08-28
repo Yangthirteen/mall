@@ -36,6 +36,5 @@ public interface UserDao {
 	public List<Map<String,Object>> getAllUser();
 	@Update("update user set email=#{email},password=#{password},name=#{name},state=#{state} where id=#{id}")
 	public int updateUserById(User user);
-	
 }
 	

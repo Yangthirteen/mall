@@ -12,23 +12,12 @@ import com.lqc.service.AdminService;
 
 import com.lqc.utils.TelUtils;
 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : AdminController 
- 		* @CreateDate : 2019年1月1日 上午9:56:34 
- 		* @lastModified : 2019年1月1日 上午9:56:34 
- 		* @version :   v1.0
- 	*/  
 @Controller
 public class AdminController {
 	@Resource
 	AdminService  adminService = null;
 	 /**
 	 		* Description: 获取手机验证码
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月1日 上午9:57:01
-	 		* Update Date Time: 
 	 		* @param tel 手机号
 	 		* @param session 存验证码
 	 	*/
@@ -40,10 +29,6 @@ public class AdminController {
 	}
 	 /**
 	 		* Description: 添加管理员用户
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月1日 上午9:57:33
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("addAdmin")
 	public String addAdmin(Admin admin,HttpSession session){
@@ -56,10 +41,6 @@ public class AdminController {
 	}
 	 /**
 	 		* Description: 管理员登入
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月1日 上午9:57:52
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("adminLoging")
 	@ResponseBody
@@ -74,9 +55,6 @@ public class AdminController {
 	}
 	 /**
 	 		* Description: 管理员退出
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月1日 上午9:10:52
 	 	*/
 	@RequestMapping("adminOut")
 	@ResponseBody

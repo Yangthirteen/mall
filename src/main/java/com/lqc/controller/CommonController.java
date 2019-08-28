@@ -4,14 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
- 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : CommonServlet 
- 		* @CreateDate : 2018年12月19日 下午11:25:34 
- 		* @lastModified : 2018年12月19日 下午11:25:34 
- 		* @version :   v1.0
- 	*/  
+
 @Controller
 public class CommonController {
 	

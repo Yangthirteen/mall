@@ -16,7 +16,12 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Mvc" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/config/spring-mvc.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/config/spring-mybatis.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">

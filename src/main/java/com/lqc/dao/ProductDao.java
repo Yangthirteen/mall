@@ -21,7 +21,7 @@ public interface ProductDao {
 	public List<Map<String,Object>> findDetailByDid(int product_dimg_id);
 	@Select("SELECT * FROM `product_dimg` WHERE product_dimg_id = #{product_dimg_id}")
 	public List<Map<String,Object>> findDeailImg(int product_dimg_id);
-	@Insert("INSERT INTO `lqcmall`.`product_review` (`product_id`, `product_rating`, `product_review`, `username`, `email`) VALUES (#{product_id}, #{product_rating}, #{product_review}, #{username}, #{email});")
+	@Insert("INSERT INTO `mall`.`product_review` (`product_id`, `product_rating`, `product_review`, `username`, `email`) VALUES (#{product_id}, #{product_rating}, #{product_review}, #{username}, #{email});")
 	public int addProductReview(Map<String,Object> map);
 	@Select("SELECT * FROM `product_addinfo` where product_id=#{product_id}")
 	public Map<String,Object> findProfuctAddInfo(int product_id);
@@ -31,15 +31,15 @@ public interface ProductDao {
 	public int findReviewCountByPid(int product_id);
 	@Select("SELECT * FROM `product` WHERE product_type_id =#{product_type_id} ORDER BY RAND() LIMIT 8")
 	public List<Map<String,Object>> getRelateProductByPtId(int product_type_id);
-	@Insert("INSERT INTO `lqcmall`.`product_card` (`product_id`, `product_card_count`, `product_color_id`, `product_size_id`, `product_user_id`) VALUES (#{product_id}, #{product_card_count}, #{product_color_id}, #{product_size_id}, #{product_user_id})")
+	@Insert("INSERT INTO `mall`.`product_card` (`product_id`, `product_card_count`, `product_color_id`, `product_size_id`, `product_user_id`) VALUES (#{product_id}, #{product_card_count}, #{product_color_id}, #{product_size_id}, #{product_user_id})")
 	public int addProductCard(Map<String,Object> map);
 	@Select("SELECT * FROM `product` where product_id =#{product_id}")
 	public Map<String,Object> getProductByPid(int product_id);
 	@Select("SELECT * ,product.product_price*product_card.product_card_count as amount from product,product_card where product.product_id=product_card.product_id and product_user_id=#{uid} and product_cart_state = 0")
 	public List<Map<String,Object>> getProductCardByUid(int uid);
-	@Update("UPDATE `lqcmall`.`product_card` SET `product_card_count`=#{product_card_count}  WHERE `product_card_id`=#{product_card_id}")
+	@Update("UPDATE `mall`.`product_card` SET `product_card_count`=#{product_card_count}  WHERE `product_card_id`=#{product_card_id}")
 	public int updateCartCountByCid(Map<String,Object> map);
-	@Insert("INSERT INTO `lqcmall`.`product_order` (`product_user_id`, `product_order_address`, `product_order_name`, `product_order_telphone`,`product_order_total`,`product_order_createDate`,`product_order_uuid`) VALUES (#{product_user_id}, #{product_order_address}, #{product_order_name}, #{product_order_telphone},#{product_order_total},#{product_order_createDate},#{product_order_uuid})")
+	@Insert("INSERT INTO `mall`.`product_order` (`product_user_id`, `product_order_address`, `product_order_name`, `product_order_telphone`,`product_order_total`,`product_order_createDate`,`product_order_uuid`) VALUES (#{product_user_id}, #{product_order_address}, #{product_order_name}, #{product_order_telphone},#{product_order_total},#{product_order_createDate},#{product_order_uuid})")
 	public int addOrder(Map<String,Object> map);
 	@Select("update product_order set product_pay_state=1 ,product_pay_no=#{product_pay_no} where product_order_uuid=#{product_order_uuid}")
 	public Integer updatePay(Map<String,Object> map);

@@ -48,7 +48,7 @@
 		AND cd.product_pay_no = o.product_pay_no
 	</select>
 	<update id="updateProduct" parameterType="com.lqc.entity.Product">
-		UPDATE `lqcmall`.`product`
+		UPDATE `mall`.`product`
 		SET `product_id` = #{product_id},
 		 `product_name` = #{product_name},
 		 `product_price` = #{product_price},
@@ -63,7 +63,7 @@
 		
 	</update>
 	<insert id="addProduct" parameterType="com.lqc.entity.Product">
-		INSERT INTO `lqcmall`.`product` (
+		INSERT INTO `mall`.`product` (
 				`product_name`,
 				`product_price`,
 				`product_img`,
@@ -89,7 +89,7 @@
 			
 	</insert>
 	<insert id="insertAddinfo" parameterType="com.lqc.entity.AddInfo">
-	INSERT INTO `lqcmall`.`product_addinfo` (
+	INSERT INTO `mall`.`product_addinfo` (
 		`product_id`,
 		`product_weight`,
 		`product_dimensions`,

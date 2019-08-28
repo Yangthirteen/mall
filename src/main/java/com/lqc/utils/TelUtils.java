@@ -29,7 +29,7 @@ public class TelUtils {
 		int templateId = 225482; // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
 		//templateId7839对应的内容是"您的验证码是: {1}"
 		// 签名
-		String smsSign = "林启澄的学习乐园"; 
+		String smsSign = "学习乐园";
 		String code = RandomStringUtils.random(6,false, true);
 		try {
 			

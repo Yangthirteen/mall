@@ -12,23 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.lqc.entity.Message;
 import com.lqc.service.ContactService;
 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : ContactController 
- 		* @CreateDate : 2019年1月2日 下午1:53:20 
- 		* @lastModified : 2019年1月2日 下午1:53:20 
- 		* @version :   v1.0
- 	*/  
 @Controller
 public class ContactController {
 	@Resource
 	private ContactService contactService = null;
 	 /**
 	 		* Description: 添加客户请求帮助信息
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 下午1:53:30
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("addMessage")
 	public String addMessage(Message message){
@@ -38,10 +27,6 @@ public class ContactController {
 	}
 	 /**
 	 		* Description: 获取客户请求帮助信息
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 下午1:54:01
-	 		* Update Date Time: 
 	 	*/
 	@RequestMapping("indexManager")
 	public String getMessage(Model model){
@@ -53,9 +38,6 @@ public class ContactController {
 	
 	 /**
 	 		* Description: 处理Message 更改state
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 下午2:31:23
 	 	*/
 	@RequestMapping("/{id}/updateMessage")
 	public String updateManager(@PathVariable int id){
@@ -64,9 +46,6 @@ public class ContactController {
 	}
 	 /**
 	 		* Description: 删除message
-	 		* Author: linQiCheng
-	 		* Version: 1.0
-	 		* Create Date Time: 2019年1月2日 下午2:31:48
 	 	*/
 	@RequestMapping("/{id}/deleteMessage")
 	public String deleteManager(@PathVariable int id){
