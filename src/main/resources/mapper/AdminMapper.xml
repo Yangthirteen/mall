@@ -3,6 +3,4 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lqc.dao.AdminDao">
-    <select id="findDetailByDid" parameterType="int" resultType="hashmap">
-    </select>
 </mapper>
