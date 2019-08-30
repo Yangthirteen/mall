@@ -9,14 +9,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.lqc.entity.User;
 
- 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : UserDao
- 		* @CreateDate : 2018年12月19日 下午11:25:09 
- 		* @lastModified : 2018年12月19日 下午11:25:09 
- 		* @version :   v1.0
- 	*/  
+
 public interface UserDao {
 	@Insert("insert into user(telphone,password) values(#{tel},#{pwd})")
 	public int addUserByTelPhone(Map<String,Object> map);

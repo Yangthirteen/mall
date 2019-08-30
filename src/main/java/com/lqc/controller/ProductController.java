@@ -156,7 +156,7 @@ public class ProductController {
 	}
 	 /**
 	 		* Description: 查询出用户的购物车信息
-	 		* @param uid 用户id
+	 		//* @param uid 用户id
 	 		* @param model card
 	 		* @return 转发到shoping-cart
 	 	*/

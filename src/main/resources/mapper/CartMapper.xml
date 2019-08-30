@@ -3,4 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lqc.dao.CartDao">
+    <select id="addProductToCart">
+        insert into cart (p_id,number,u_id,size) values (#{product_id},#{})
+    </select>
 </mapper>

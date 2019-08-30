@@ -1,12 +1,6 @@
 package com.lqc.entity;
 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : TODO 
- 		* @CreateDate : 2018年12月31日 下午11:32:04 
- 		* @lastModified : 2018年12月31日 下午11:32:04 
- 		* @version :   
- 	*/  
+
 public class Admin {
 	private int aid;
 	private String  aname;
