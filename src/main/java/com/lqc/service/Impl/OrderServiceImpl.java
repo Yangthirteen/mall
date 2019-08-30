@@ -1,8 +1,5 @@
 package com.lqc.service.Impl;
 
-import com.lqc.dao.OrderDao;
-import com.lqc.entity.Order;
-import com.lqc.service.OrderService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
