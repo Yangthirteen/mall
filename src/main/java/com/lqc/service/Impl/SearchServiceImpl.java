@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SearchServiceImpl implements SearchService {
@@ -15,8 +16,8 @@ public class SearchServiceImpl implements SearchService {
     private SearchDao searchDao=null;
 
     @Override
-    public List<Product> search(String keyword) {
-        List<Product> productList=null;
+    public List<Map<String,Object>> search(String keyword) {
+        List<Map<String,Object>> productList=null;
         productList=searchDao.getProductList(keyword);
         return productList;
     }
