@@ -3,4 +3,39 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.lqc.dao.UserDao">
+	<insert id="addUserByTelPhone" parameterType="hashmap">
+		insert into user(telphone,password) values(#{tel},#{pwd})
+	</insert>
+
+	<insert id="addUserByEmail" parameterType="hashmap">
+		insert into user(name,email,password,code) values(#{name},#{email},#{password},#{code})
+	</insert>
+
+	<update id="activateUser" parameterType="String">
+		update user set state = 1 where code=#{code}
+	</update>
+
+	<update id="updatePasswordByCode" parameterType="hashmap">
+		update user set password=#{password} where code=#{code}
+	</update>
+
+	<update id="updatePasswordByEmail" parameterType="hashmap">
+		update user set password=#{password} where email=#{email} and code=#{code}
+	</update>
+
+	<select id="findUserByEmailAndPassword" parameterType="hashmap" resultType="hashmap">
+		select * from user where email=#{email} and password=#{password}
+	</select>
+
+	<select id="getCodeByEmail" parameterType="String" resultType="String">
+		select code from user where email=#{email}
+	</select>
+
+	<select id="getAllUser" resultType="hashmap">
+		select * from user
+	</select>
+
+	<update id="updateUserById" parameterType="com.lqc.entity.User">
+		update user set email=#{email},password=#{password},name=#{name},state=#{state} where id=#{id}
+	</update>
 </mapper>

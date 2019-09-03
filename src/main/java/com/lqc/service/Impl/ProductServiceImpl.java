@@ -182,4 +182,9 @@ public class ProductServiceImpl implements ProductService{
 		return productDao.insertAddinfo(addInfo)>0;
 	}
 
+	@Override
+	public boolean updateProductCount(Map<String, Object> map) {
+		return productDao.updateProductCount(map)>0;
+	}
+
 }

@@ -3,4 +3,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lqc.dao.ContactDao">
+    <insert id="addMessage" parameterType="com.lqc.entity.Message">
+        INSERT INTO `mall`.`message` (`message_email`, `message_content`) VALUES (#{message_email}, #{message_content})
+    </insert>
+
+    <select id="getMessage" resultType="hashmap">
+        select * from message
+    </select>
+
+    <update id="updateMessage" parameterType="int">
+        update message set message_state=1 where message_id=#{message_id}
+    </update>
+
+    <delete id="deleteMessage" parameterType="int">
+        delete from message where message_id=#{message_id}
+    </delete>
 </mapper>

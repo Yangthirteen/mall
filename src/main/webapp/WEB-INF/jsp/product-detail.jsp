@@ -248,6 +248,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</header>
 
 	<!-- Cart -->
+	<div id="viewCart">
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
@@ -261,7 +262,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<i class="zmdi zmdi-close"></i>
 				</div>
 			</div>
-			
+
 			<div class="header-cart-content flex-w js-pscroll">
 				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
@@ -302,6 +303,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 
@@ -420,7 +422,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</div>
 									</div>
 									<input type="hidden" value="${user.id}" id="uid">
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" onclick="Card(${deailProduct.product_id})">
+									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" onclick="Card(${deailProduct.product_dimg_id},${deailProduct.product_id},${deailProduct.product_type_id})">
 										Add to cart
 									</button>
 								</div>
@@ -979,7 +981,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			})
 		});
 	}
-	function Card(pid){
+	function Card(did,pid,ptid){
 		var uid=$('#uid').val();
 		var color=$('#color').val();
 		var size=$('#size').val();
@@ -987,6 +989,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
 			
 		});
+		//$("viewCart").load("http://localhost:8080/lqcmall_war_exploded/productDetail.html?did="+did+"&&pid="+pid+"&&ptid="+ptid)
 	}
 	</script>
 </body>

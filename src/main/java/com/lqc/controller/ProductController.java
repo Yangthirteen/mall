@@ -91,11 +91,14 @@ public class ProductController {
 		map.put("product_user_id", uid);
 		map.put("product_card_count", count);
 		System.out.println(map);
-		productService.addProductCard(map);
+		if(!productService.updateProductCount(map)){
+			productService.addProductCard(map);
+		}
 		@SuppressWarnings("unchecked")
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
 		List<Map<String, Object>> userCart = productService.getProductCardByUid((int)user.get("id"));
 		session.setAttribute("userCart", userCart);
+
 	}
 	 /**
 	 		* Description: 把评论添加到数据库
@@ -264,7 +267,7 @@ public class ProductController {
 			price="1";
 		}
 		//参数有中文则需要URL编码
-		String url="https://codepay.fateqq.com/creat_order/?price="+price+"&pay_id="+pay_id+"&type=1&token=jLYzxLMNCxIjgeP6dDjBUj1Y7RNvXT3d&param="+param+"&act=0&id=161319&debug=0&pay_type=1&notify_url=http://lqcnb.cn:8080/lqcmall/pay.html&return_url=http://lqcnb.cn:8080/lqcmall/index.html";
+		String url="https://codepay.fateqq.com/creat_order/?price="+price+"&pay_id="+pay_id+"&type=1&token=jLYzxLMNCxIjgeP6dDjBUj1Y7RNvXT3d&param="+param+"&act=0&id=161319&debug=0&pay_type=1&notify_url=http://lqcnb.cn:8080/lqcmall/pay.html&return_url=http://localhost:8080/lqcmall_war_exploded/";
 		return "redirect:"+url;
 	}
 	 /**

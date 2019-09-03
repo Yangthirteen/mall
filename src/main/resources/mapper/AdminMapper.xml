@@ -3,4 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lqc.dao.AdminDao">
+    <insert id="addAdmin" parameterType="com.lqc.entity.Admin">
+        insert into admin values(null,#{aname},#{amobile},#{apwd})
+    </insert>
+
+    <select id="getAdmin" parameterType="com.lqc.entity.Admin" resultType="com.lqc.entity.Admin">
+        select * from admin where amobile=#{amobile} and apwd=#{apwd}
+    </select>
 </mapper>
