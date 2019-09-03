@@ -37,214 +37,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body class="animsition">
 	
 	<!-- Header -->
-	<header class="header-v4">
-		<!-- Header desktop -->
-		<div class="container-menu-desktop">
-			<!-- Topbar -->
-			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
-						Free shipping for standard order over $100
-					</div>
-
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							USD
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="wrap-menu-desktop how-shadow1">
-				<nav class="limiter-menu-desktop container">
-					
-					<!-- Logo desktop -->		
-					<a href="#" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
-					</a>
-
-					<!-- Menu desktop -->
-					<div class="menu-desktop">
-						<ul class="main-menu">
-							<li>
-								<a href="index.html">Home</a>
-								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
-								</ul>
-							</li>
-
-							<li>
-								<a href="product.html">Shop</a>
-							</li>
-
-							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
-							</li>
-
-							<li>
-								<a href="blog.html">Blog</a>
-							</li>
-
-							<li class="active-menu">
-								<a href="about.html">About</a>
-							</li>
-
-							<li>
-								<a href="contact.html">Contact</a>
-							</li>
-						</ul>
-					</div>	
-
-					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
-
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
-
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
-					</div>
-				</nav>
-			</div>	
-		</div>
-
-		<!-- Header Mobile -->
-		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
-			<div class="logo-mobile">
-				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
-			</div>
-
-			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
-				</div>
-
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
-			</div>
-
-			<!-- Button show menu -->
-			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
-			</div>
-		</div>
-
-
-		<!-- Menu Mobile -->
-		<div class="menu-mobile">
-			<ul class="topbar-mobile">
-				<li>
-					<div class="left-top-bar">
-						Free shipping for standard order over $100
-					</div>
-				</li>
-
-				<li>
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							Help & FAQs
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							My Account
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							USD
-						</a>
-					</div>
-				</li>
-			</ul>
-
-			<ul class="main-menu-m">
-				<li>
-					<a href="index.html">Home</a>
-					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
-						<li><a href="home-02.html">Homepage 2</a></li>
-						<li><a href="home-03.html">Homepage 3</a></li>
-					</ul>
-					<span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</span>
-				</li>
-
-				<li>
-					<a href="product.html">Shop</a>
-				</li>
-
-				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
-				</li>
-
-				<li>
-					<a href="blog.html">Blog</a>
-				</li>
-
-				<li>
-					<a href="about.html">About</a>
-				</li>
-
-				<li>
-					<a href="contact.html">Contact</a>
-				</li>
-			</ul>
-		</div>
-
-		<!-- Modal Search -->
-		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="images/icons/icon-close2.png" alt="CLOSE">
-				</button>
-
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
-			</div>
-		</div>
-	</header>
+	<jsp:include page="part/header.jsp"></jsp:include>
 
 	
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../../images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			About
+			关于
 		</h2>
 	</section>	
 
@@ -256,19 +55,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="col-md-7 col-lg-8">
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
 						<h3 class="mtext-111 cl2 p-b-16">
-							Our Story
+							我们的故事
 						</h3>
 
 						<p class="stext-113 cl6 p-b-26">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat consequat enim, non auctor massa ultrices non. Morbi sed odio massa. Quisque at vehicula tellus, sed tincidunt augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas varius egestas diam, eu sodales metus scelerisque congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas gravida justo eu arcu egestas convallis. Nullam eu erat bibendum, tempus ipsum eget, dictum enim. Donec non neque ut enim dapibus tincidunt vitae nec augue. Suspendisse potenti. Proin ut est diam. Donec condimentum euismod tortor, eget facilisis diam faucibus et. Morbi a tempor elit.
-						</p>
+                            “天猫”（英文：Tmall，亦称淘宝商城、天猫商城）原名淘宝商城，是一个综合性购物网站。2012年1月11日上午，淘宝商城正式宣布更名为“天猫”。
+                            2012年3月29日天猫发布全新Logo形象。
+                            2012年11月11日，天猫借光棍节大赚一笔，宣称13小时卖100亿，创世界纪录。
+                            天猫是马云淘宝网全新打造的B2C（Business-to-Consumer，商业零售）。其整合数千家品牌商、生产商，为商家和消费者之间提供一站式解决方案。
+                            提供100%品质保证的商品，7天无理由退货的售后服务，以及购物积分返现等优质服务。
+                            2014年2月19日，阿里集团宣布天猫国际正式上线，为国内消费者直供海外原装进口商品。
+                            2016年11月11日天猫双11再刷全球最大购物日记录，单日交易1207亿。
+                        </p>
 
 						<p class="stext-113 cl6 p-b-26">
-							Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula. 
-						</p>
+                            2019年3月6日,阿里巴巴宣布在保持淘宝、天猫两个品牌独立发展同时,将打通淘宝、天猫两个消费场景,实现消费者和平台商家的分层运营,满足不同消费者商家的需求。
+                            与此相应,阿里巴巴将对组织架构有所调整:淘宝总裁蒋凡将兼任天猫总裁;原天猫总裁靖捷将担任阿里巴巴CEO张勇的助理,并成为阿里数字经济体的企业服务体系的秘书长,
+                            专注帮助企业完成数字化转型。
+                        </p>
 
 						<p class="stext-113 cl6 p-b-26">
-							Any questions? Let us know in sanming university or call us on (+86) 18065859553
+                            任何关于我们的问题？请拨打（+86）1458262552
 						</p>
 					</div>
 				</div>
@@ -286,17 +93,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
 					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
 						<h3 class="mtext-111 cl2 p-b-16">
-							Our Mission
+							我们的目标
 						</h3>
 
 						<p class="stext-113 cl6 p-b-26">
-							Mauris non lacinia magna. Sed nec lobortis dolor. Vestibulum rhoncus dignissim risus, sed consectetur erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam maximus mauris sit amet odio convallis, in pharetra magna gravida. Praesent sed nunc fermentum mi molestie tempor. Morbi vitae viverra odio. Pellentesque ac velit egestas, luctus arcu non, laoreet mauris. Sed in ipsum tempor, consequat odio in, porttitor ante. Ut mauris ligula, volutpat in sodales in, porta non odio. Pellentesque tempor urna vitae mi vestibulum, nec venenatis nulla lobortis. Proin at gravida ante. Mauris auctor purus at lacus maximus euismod. Pellentesque vulputate massa ut nisl hendrerit, eget elementum libero iaculis.
-						</p>
-
+                            4月25日下午，天猫新总裁蒋凡宣布了一件大事，这也是自3月6日上任天猫总裁后的首次公开露面。
+                            他宣布了“天猫四小目标”：1.在未来三年天猫交易规模要翻一番；
+                            2.加强与品牌商家的合作，与他们共同创造新品；
+                            3.在三年内为全球范围内的商家发布超过一亿款商品；
+                            4.还要创造出100个年销售额超10亿元的新品牌。
+                        </p>
 						<div class="bor16 p-l-29 p-b-9 m-t-22">
 							<p class="stext-114 cl6 p-r-40 p-b-11">
-								Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
-							</p>
+                                继5月宣布启动首个国家馆韩国馆之后，阿里巴巴集团旗下聚划算平台和天猫国际联合开启“地球村”模式。
+                                美国、英国、法国、西班牙、瑞士、澳大利亚、新西兰、新加坡、泰国、马来西亚、土耳其等十一国国家馆在天猫国际亮相。
+                                同日，阿里巴巴聚划算平台宣布全面启动与20国国家大使馆合作进程，更多海外特色商品有望在聚划算实现首发。
+                            </p>
 
 							<span class="stext-111 cl8">
 								- XXXXXXXX 

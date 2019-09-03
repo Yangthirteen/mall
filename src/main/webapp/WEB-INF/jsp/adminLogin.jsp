@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Admin Login</div>
+        <div class="card-header">后台登陆</div>
         <div class="card-body">
           <form action="adminlogin.html" method="post" id="form1">
             <div class="form-group">

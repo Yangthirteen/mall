@@ -4,31 +4,31 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 	<!-- Header -->
-		<header>
+		<header class="header-v4">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over $100
+						订单满$100免运费
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
+							帮助和解答
+						</a>
+
+						<a href="login.html" class="flex-c-m trans-04 p-lr-25">
+							账户
 						</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
+                             中文
 						</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							USD
+							支付
 						</a>
 					</div>
 				</div>
@@ -46,32 +46,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="index.html">Home</a>
+								<a href="index.html">主页</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
+									<li><a href="index.html">主页1</a></li>
+									<li><a href="home-02.html">主页2</a></li>
+									<li><a href="home-03.html">主页3</a></li>
 								</ul>
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product.html">商店</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="shoping-cart.html">专题</a>
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="blog.html">博客</a>
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="about.html">关于</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="contact.html">联系</a>
 							</li>
 						</ul>
 					</div>	
@@ -130,26 +130,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Free shipping for standard order over $100
+						订单满$100免运费
 					</div>
 				</li>
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							Help & FAQs
+							帮助和解答
+						</a>
+
+						<a href="login.jsp" class="flex-c-m p-lr-10 trans-04">
+							登陆
 						</a>
 
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							My Account
+							中文
 						</a>
 
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							EN
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							USD
+							支付
 						</a>
 					</div>
 				</li>
@@ -157,11 +157,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="index.html">主页</a>
 					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
-						<li><a href="home-02.html">Homepage 2</a></li>
-						<li><a href="home-03.html">Homepage 3</a></li>
+						<li><a href="index.html">主页 1</a></li>
+						<li><a href="home-02.html">主页 2</a></li>
+						<li><a href="home-03.html">主页 3</a></li>
 					</ul>
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -169,23 +169,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</li>
 
 				<li>
-					<a href="product.html">Shop</a>
+					<a href="product.html">商店</a>
 				</li>
 
 				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">专题</a>
 				</li>
 
 				<li>
-					<a href="blog.html">Blog</a>
+					<a href="blog.html">博客</a>
 				</li>
 
 				<li>
-					<a href="about.html">About</a>
+					<a href="about.html">关于</a>
 				</li>
 
 				<li>
-					<a href="contact.html">Contact</a>
+					<a href="contact.html">联系</a>
 				</li>
 			</ul>
 		</div>

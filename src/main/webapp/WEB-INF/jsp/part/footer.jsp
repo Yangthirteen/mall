@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						Categories
+						分类
 					</h4>
 
 					<ul>
@@ -21,19 +21,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Men
+								男性
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shoes
+								鞋子
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Watches
+								手表
 							</a>
 						</li>
 					</ul>
@@ -41,31 +41,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						Help
+						帮助
 					</h4>
 
 					<ul>
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Track Order
+								订单跟踪
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Returns 
+								返回
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Shipping
+								购物
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								FAQs
+								问答
 							</a>
 						</li>
 					</ul>
@@ -73,11 +73,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						GET IN TOUCH
+						联系我们
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Any questions? Let us know in sanming university or call us on (+86) 1806585xxxx
+						任何关于我们的问题？请拨打（+86）145826255
 					</p>
 
 					<div class="p-t-27">
@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						Newsletter
+						联系
 					</h4>
 
 					<form>
@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<div class="p-t-18">
 							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-								Subscribe
+								订阅
 							</button>
 						</div>
 					</form>
