@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">lqcMall Manager</a>
+      <a class="navbar-brand mr-1" href="index.html">Mall Manager</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -43,14 +43,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
       </form>
 
       <!-- Navbar -->
@@ -73,12 +65,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item ">
-          <a class="nav-link" href="indexManager.html">
-          <i class="fas fa-table"></i>
-            <span>仪表盘</span>
-          </a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="orderManager.html">
             <i class="fab fa-amazon-pay"></i>
@@ -108,9 +94,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <a href="indexManager.html">仪表盘</a>
-            </li>
+            <%--<li class="breadcrumb-item">--%>
+              <%--<a href="indexManager.html">仪表盘</a>--%>
+            <%--</li>--%>
             <li class="breadcrumb-item ">图片管理</li>
             <li class="breadcrumb-item active"><a href="#" data-toggle="modal" data-target="#myModal-uploaddimg">上传商品详图</a></li>
           </ol>
@@ -119,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-         	     图片管理   -->管理员请注意上传图片名字不能一样 等待 lqcmall V2.0 版本更新</div>
+         	     图片管理</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -162,7 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Copyright is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="http://lqcnb.cn" target="_blank">lqcmall</a></span>
+              <span>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Copyright is made in CSU</span>
             </div>
           </div>
         </footer>

@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul>
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								女性
+								Women
 							</a>
 						</li>
 
@@ -139,9 +139,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 
 				<p class="stext-107 cl6 txt-center">
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Copyright is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="http://lqcnb.cn" target="_blank">lqcmall</a>
-
-
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Copyright is made in CSU
 				</p>
 			</div>
 		</div>

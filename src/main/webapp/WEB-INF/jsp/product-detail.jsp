@@ -989,7 +989,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
 			
 		});
-		//$("viewCart").load("http://localhost:8080/lqcmall_war_exploded/productDetail.html?did="+did+"&&pid="+pid+"&&ptid="+ptid)
+		window.location.reload();
 	}
 	</script>
 </body>

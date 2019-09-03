@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	$('#login').click(function(){
 			$.post("adminLoging.html",$('#form1').serialize(),function(data){
 				if(data=='yes'){
-					location.assign("indexManager.html");
+					location.assign("orderManager.html");
 				}else{
 					location.assign("adminLogin.html");
 				}
