@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>lqcmall Login</title>
+    <title>登陆</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,28 +37,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="form-group">
               <div class="form-label-group">
                 <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-                <label for="inputEmail">Email address</label>
+                <label for="inputEmail">邮箱地址</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
                 <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required="required">
-                <label for="inputPassword">Password</label>
+                <label for="inputPassword">密码</label>
               </div>
             </div>
             <div class="form-group">
               <div class="checkbox">
                 <label>
                   <input type="checkbox" value="remember-me">
-                  Remember Password
+                 记住密码
                 </label>
               </div>
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Login">
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="register.html">Register an Account</a>
-            <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+            <a class="d-block small mt-3" href="register.html">创建账号</a>
+            <a class="d-block small" href="forgot-password.html">忘记密码？</a>
           </div>
         </div>
       </div>

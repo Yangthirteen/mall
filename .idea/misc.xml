@@ -10,7 +10,13 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_10" project-jdk-name="10" project-jdk-type="JavaSDK">
+  <component name="ProjectResources">
+    <resource url="http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd" location="$USER_HOME$/.IntelliJIdea2019.1/system/extResources/13953ab3_spring-mvc-4.3.xsd" />
+    <resource url="http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd" location="$USER_HOME$/.IntelliJIdea2019.1/system/extResources/a0fb4e37_xmlspec.dtd" />
+    <resource url="https://www.springframework.org/schema/beans/spring-beans-4.3.xsd" location="$USER_HOME$/.IntelliJIdea2019.1/system/extResources/38fbf776_spring-beans-4.3.xsd" />
+    <resource url="https://www.springframework.org/schema/tool/spring-tool-4.3.xsd" location="$USER_HOME$/.IntelliJIdea2019.1/system/extResources/93b79a08_spring-tool-4.3.xsd" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="10" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
 </project>
