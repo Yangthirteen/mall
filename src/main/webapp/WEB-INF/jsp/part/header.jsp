@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							帮助和解答
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="login.html" class="flex-c-m trans-04 p-lr-25">
 							账户
 						</a>
 
