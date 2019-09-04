@@ -48,6 +48,7 @@ public interface ProductService {
 	public boolean deleteDimg(int product_dimgId);
 	public boolean insertAddinfo(AddInfo addInfo);
 	public boolean updateProductCount(Map<String,Object> map);
+	public int getProductCartCount(int product_user_id);
 
 	//查询购物车商品总价
 	public BigDecimal sumOfCart(int product_user_id);

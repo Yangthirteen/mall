@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						订单满$100免运费
+						订单满100元免运费
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
@@ -30,6 +31,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							支付
 						</a>
+
+						<c:if test="${sessionScope.user != null}">
+							<a href="/userOut.html" class="flex-c-m trans-04 p-lr-25">
+								退出
+							</a>
+						</c:if>
+
+
 					</div>
 				</div>
 			</div>
@@ -57,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">专题</a>
+								<a href="shoping-cart.html">购物车</a>
 							</li>
 
 							<li>
@@ -80,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="1">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify=${cartCountNumber}>
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
@@ -105,7 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<i class="zmdi zmdi-search"></i>
 				</div>
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify=${cartCountNumber}>
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 

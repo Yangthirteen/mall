@@ -189,6 +189,8 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
+	public int getProductCartCount(int product_user_id){ return productDao.getProductCartCount(product_user_id); }
+	@Override
 	public BigDecimal sumOfCart(int product_user_id) {
 		return productDao.sumOfCart(product_user_id);
 	}

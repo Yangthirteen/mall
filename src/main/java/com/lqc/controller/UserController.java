@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lqc.entity.User;
@@ -71,13 +72,25 @@ public class UserController {
 	 */
 	@RequestMapping("userlogin")
 	public String findUserByEmailAndPassword(String inputEmail,String inputPassword,HttpSession session,HttpServletRequest request){
+		String msg = null;
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("email", inputEmail);
 		map.put("password", inputPassword);
 		Map<String, Object> user = userService.findUserByEmailAndPassword(map);
 		if(user==null||user.get("state").equals(0)){
+			msg = "账号或密码错误，请重试";
+			request.setAttribute("msg",msg);
+			System.out.println(msg);
 			return "login";
 		}
+
+		//购物车图标右上角的数量显示
+		int cartCountNumber = 0;
+		if(user!=null){
+			cartCountNumber = productService.getProductCartCount((int)user.get("id"));
+		}
+		session.setAttribute("cartCountNumber", cartCountNumber);
+
 		List<Map<String, Object>> productAll = productService.findAllProduct();
 		List<Map<String, Object>> productTypeAll = productService.findAllProductType();
 		request.setAttribute("productAll", productAll);
@@ -87,7 +100,7 @@ public class UserController {
 		session.setAttribute("userCart", userCart);
 		System.out.println(user);
 		return "index";
-	}
+}
 	/**
 	 * @param inputEmail 用户邮箱  发送邮件让用户改密码
 	 * @return  登录界面
@@ -136,5 +149,16 @@ public class UserController {
 		System.out.println(user);
 		userService.updateUserById(user);
 		return "redirect:/userManager.html";
+	}
+
+	/**
+	 * Description: 用户退出
+	 */
+	@RequestMapping("userOut")
+	public String adminLogOut(HttpSession session) {
+		session.setAttribute("user",null);
+		session.setAttribute("userCart",null);
+		session.setAttribute("cartCountNumber",0);
+		return "index";
 	}
 }

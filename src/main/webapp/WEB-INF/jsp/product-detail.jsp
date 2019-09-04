@@ -636,7 +636,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var size=$('#size').val();
 		var count=$('#num-product').val();
 		$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
-
 		});
         window.location.reload();
 	}

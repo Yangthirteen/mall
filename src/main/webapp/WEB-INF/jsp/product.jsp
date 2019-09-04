@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 
 								<span class="header-cart-item-info">
-									${c.product_cart_count} x $${c.product_price}
+									${c.product_card_count} x $${c.product_price}
 								</span>
 							</div>
 						</li>

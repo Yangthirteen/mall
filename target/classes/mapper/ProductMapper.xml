@@ -226,6 +226,10 @@
 		update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id}
 	</update>
 
+	<select id="getProductCartCount" parameterType="int" resultType="int">
+		SELECT IFNULL(SUM(product_card_count),0) FROM product_card WHERE product_user_id=#{product_user_id}
+	</select>
+
 	<select id="sumOfCart" parameterType="int" resultType="BigDecimal">
 		SELECT  SUM(product_card_count * product_price)
 		FROM product_card

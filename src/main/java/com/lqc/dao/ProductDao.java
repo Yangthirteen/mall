@@ -107,6 +107,8 @@ public interface ProductDao {
 	//@Update("update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id}")
 	public int updateProductCount(Map<String,Object> map);
 
+	public int getProductCartCount(int product_user_id);
+
 	//结算购物车，生成订单
 	public int checkout(List<Map<String,Object>> map);
 

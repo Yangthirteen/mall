@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -68,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 	
 								<span class="header-cart-item-info">
-									${c.product_cart_count} x $${c.product_price}
+									${c.product_card_count} x $${c.product_price}
 								</span>
 							</div>
 						</li>
@@ -141,7 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</span>
 
 							<p class="stext-115 cl6 size-213 p-t-18">
-								福建省三明市三明学院
+								湖南省长沙市中南大学
 							</p>
 						</div>
 					</div>
@@ -157,7 +158,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-								+861806585xxxx
+								15200830956
 							</p>
 						</div>
 					</div>
@@ -173,7 +174,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-								1402548358@qq.com
+								2575773858@qq.com
 							</p>
 						</div>
 					</div>

@@ -35,11 +35,21 @@ public class ProductController {
 	 * @return 转发到主界面
 	 */
 	@RequestMapping("index")
-	public String bashMessageToHome(HttpServletRequest request){
+	public String bashMessageToHome(HttpServletRequest request,HttpSession session){
 		List<Map<String, Object>> productAll = productService.findAllProduct();
 		List<Map<String, Object>> productTypeAll = productService.findAllProductType();
 		request.setAttribute("productAll", productAll);
 		request.setAttribute("productTypeAll", productTypeAll);
+
+		//购物车图标右上角的数量显示
+		int cartCountNumber = 0;
+		@SuppressWarnings("unchecked")
+		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
+		if(user!=null){
+			cartCountNumber = productService.getProductCartCount((int)user.get("id"));
+		}
+		session.setAttribute("cartCountNumber", cartCountNumber);
+
 		return "index";
 	}
 	 /**
@@ -92,9 +102,10 @@ public class ProductController {
 		map.put("product_user_id", uid);
 		map.put("product_card_count", count);
 		System.out.println(map);
-		if(!productService.updateProductCount(map)){
+		if (!productService.updateProductCount(map)){
 			productService.addProductCard(map);
 		}
+//		productService.updateProductCount(map);
 		@SuppressWarnings("unchecked")
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
 		List<Map<String, Object>> userCart = productService.getProductCardByUid((int)user.get("id"));

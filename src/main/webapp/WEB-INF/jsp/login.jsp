@@ -74,9 +74,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	
 	<script type="text/javascript">
-	
+
 
 	</script>
+
+    <%
+      String msg = (String)request.getAttribute("msg");         // 获取错误属性
+      if(msg != null) {
+    %>
+    <script type="text/javascript" language="javascript">
+        alert("<%=msg%>");
+    </script>
+    <%
+      }
+    %>
   </body>
 
 </html>
