@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							帮助和解答
 						</a>
 
-						<a href="/account.html" class="flex-c-m trans-04 p-lr-25">
+						<a href="account.html" class="flex-c-m trans-04 p-lr-25">
 							账户
 						</a>
 
@@ -197,7 +197,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<img src="images/icons/icon-close2.png" alt="CLOSE">
 					</button>
 
-					<form class="wrap-search-header flex-w p-l-15" action="/search.html" method="post">
+					<form class="wrap-search-header flex-w p-l-15" action="search.html" method="post">
 						<button class="flex-c-m trans-04" type="submit">
 							<i class="zmdi zmdi-search"></i>
 						</button>

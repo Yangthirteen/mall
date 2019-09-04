@@ -59,6 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="text-center">
             <a class="d-block small mt-3" href="register.html">创建账号</a>
             <a class="d-block small" href="forgot-password.html">忘记密码？</a>
+            <a class="d-block small" href="adminLogin.html">后台登陆</a>
+
           </div>
         </div>
       </div>
