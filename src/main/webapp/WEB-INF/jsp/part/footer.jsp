@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						任何关于我们的问题？请拨打（+86）145826255
+						任何关于我们的问题？请联系qq：2575773858
 					</p>
 
 					<div class="p-t-27">
@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<form>
 						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="1402548358@qq.com">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="2575773858@qq.com">
 							<div class="focus-input1 trans-04"></div>
 						</div>
 
