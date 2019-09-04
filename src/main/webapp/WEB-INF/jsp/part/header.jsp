@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							帮助和解答
 						</a>
 
-						<a href="login.html" class="flex-c-m trans-04 p-lr-25">
+						<a href="/account.html" class="flex-c-m trans-04 p-lr-25">
 							账户
 						</a>
 
@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="1">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 

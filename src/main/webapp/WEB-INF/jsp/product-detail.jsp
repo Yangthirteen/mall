@@ -47,58 +47,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="part/header.jsp"></jsp:include>
 
 	<!-- Cart -->
-	<div id="viewCart">
-		<div class="wrap-header-cart js-panel-cart">
-			<div class="s-full js-hide-cart"></div>
+	<div class="wrap-header-cart js-panel-cart">
+		<div class="s-full js-hide-cart"></div>
 
-			<div class="header-cart flex-col-l p-l-65 p-r-25">
-				<div class="header-cart-title flex-w flex-sb-m p-b-8">
+		<div class="header-cart flex-col-l p-l-65 p-r-25">
+			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					购物车
+					Your Cart
 				</span>
 
-					<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-						<i class="zmdi zmdi-close"></i>
-					</div>
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+					<i class="zmdi zmdi-close"></i>
 				</div>
-
-				<div class="header-cart-content flex-w js-pscroll">
-					<ul class="header-cart-wrapitem w-full">
-						<c:forEach items="${userCart}" var="c">
-							<li class="header-cart-item flex-w flex-t m-b-12">
-								<div class="header-cart-item-img">
-									<img src="${c.product_card_img}" alt="IMG">
-								</div>
-
-								<div class="header-cart-item-txt p-t-8">
-									<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-											${c.product_name}
-									</a>
-
-									<span class="header-cart-item-info">
+			</div>
+			
+			<div class="header-cart-content flex-w js-pscroll">
+				<ul class="header-cart-wrapitem w-full">
+					<c:forEach items="${userCart}" var="c">
+						<li class="header-cart-item flex-w flex-t m-b-12">
+							<div class="header-cart-item-img">
+								<img src="${c.product_card_img}" alt="IMG">
+							</div>
+	
+							<div class="header-cart-item-txt p-t-8">
+								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+									${c.product_name}
+								</a>
+	
+								<span class="header-cart-item-info">
 									${c.product_cart_count} x $${c.product_price}
 								</span>
-								</div>
-							</li>
-						</c:forEach>
+							</div>
+						</li>
+					</c:forEach>
+					
+				
+				</ul>
+				
+				<div class="w-full">
+					<!-- <div class="header-cart-total w-full p-tb-40">
+						Total: $75.00
+					</div> -->
 
+					<div class="header-cart-buttons flex-w w-full">
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+							View Cart
+						</a>
 
-					</ul>
-
-					<div class="w-full">
-						<!-- <div class="header-cart-total w-full p-tb-40">
-                            Total: $75.00
-                        </div> -->
-
-						<div class="header-cart-buttons flex-w w-full">
-							<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-								订单
-							</a>
-
-							<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-								支付
-							</a>
-						</div>
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+							Check Out
+						</a>
 					</div>
 				</div>
 			</div>
@@ -110,17 +108,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
-				主页
+				Home
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
 			<a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
-				男性
+				Men
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
 			<span class="stext-109 cl4">
-				亮色夹克
+				Lightweight Jacket
 			</span>
 		</div>
 	</div>
@@ -171,16 +169,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="p-t-33">
 							<div class="flex-w flex-r-m p-b-10">
 								<div class="size-203 flex-c-m respon6">
-									尺寸
+									Size
 								</div>
 
 								<div class="size-204 respon6-next">
 									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2" name="size">
-											<option value="1"> S</option>
-											<option value="2"> M</option>
-											<option value="3"> L</option>
-											<option value="4"> XL</option>
+										<select class="js-select2" name="size" id="size">
+											<option value="1">Size S</option>
+											<option value="2">Size M</option>
+											<option value="3">Size L</option>
+											<option value="4">Size XL</option>
 										</select>
 										<div class="dropDownSelect2"></div>
 									</div>
@@ -189,16 +187,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 							<div class="flex-w flex-r-m p-b-10">
 								<div class="size-203 flex-c-m respon6">
-									颜色
+									Color
 								</div>
 
 								<div class="size-204 respon6-next">
 									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2" name="color">
-											<option value="1">红色</option>
-											<option value="2">蓝色</option>
-											<option value="3">白色</option>
-											<option value="4">棕色</option>
+										<select class="js-select2" name="color" id="color">
+											<option value="1">Red</option>
+											<option value="2">Blue</option>
+											<option value="3">White</option>
+											<option value="4">Grey</option>
 										</select>
 										<div class="dropDownSelect2"></div>
 									</div>
@@ -209,21 +207,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="size-204 flex-w flex-m respon6-next">
 									<div class="wrap-num-product flex-w m-r-20 m-tb-10">
 										<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-minus"></i>
+											<i class="fs-16 zmdi zmdi-minus" ></i>
 										</div>
 
-										<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+										<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" id="num-product" value="1">
 
 										<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-plus"></i>
+											<i class="fs-16 zmdi zmdi-plus" ></i>
 										</div>
 									</div>
-
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-										添加购物车
+									<input type="hidden" value="${user.id}" id="uid">
+									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" onclick="Card(${deailProduct.product_id})">
+										Add to cart
 									</button>
 								</div>
-							</div>
+							</div>	
 						</div>
 
 						<!--  -->
@@ -585,7 +583,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="size-204 respon6-next">
 										<div class="rs1-select2 bor8 bg0">
 											<select class="js-select2" name="time">
-												<option>Choose an option</option>
 												<option>Size S</option>
 												<option>Size M</option>
 												<option>Size L</option>
@@ -604,7 +601,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="size-204 respon6-next">
 										<div class="rs1-select2 bor8 bg0">
 											<select class="js-select2" name="time">
-												<option>Choose an option</option>
 												<option>Red</option>
 												<option>Blue</option>
 												<option>White</option>
@@ -778,15 +774,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			})
 		});
 	}
-	function Card(did,pid,ptid){
+	function Card(pid){
 		var uid=$('#uid').val();
 		var color=$('#color').val();
 		var size=$('#size').val();
 		var count=$('#num-product').val();
 		$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
-			
+
 		});
-		window.location.reload();
+        window.location.reload();
 	}
 	</script>
 </body>
