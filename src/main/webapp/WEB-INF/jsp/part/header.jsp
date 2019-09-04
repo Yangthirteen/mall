@@ -48,9 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li class="active-menu">
 								<a href="index.html">主页</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">主页1</a></li>
-									<li><a href="home-02.html">主页2</a></li>
-									<li><a href="home-03.html">主页3</a></li>
+									<li><a href="home-03.html">主页2</a></li>
 								</ul>
 							</li>
 
@@ -136,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="account.html" class="flex-c-m p-lr-10 trans-04">
 							帮助和解答
 						</a>
 
@@ -159,9 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li>
 					<a href="index.html">主页</a>
 					<ul class="sub-menu-m">
-						<li><a href="index.html">主页 1</a></li>
-						<li><a href="home-02.html">主页 2</a></li>
-						<li><a href="home-03.html">主页 3</a></li>
+						<li><a href="home-03.html">主页2</a></li>
 					</ul>
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>

@@ -31,14 +31,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <div class="container">
       <div class="card card-register mx-auto mt-5">
-        <div class="card-header">Register an Account</div>
+        <div class="card-header">创建账号</div>
         <div class="card-body">
           <form action="addAdmin.html" method="post" onsubmit="return check();">
            
             <div class="form-group">
                   <div class="form-label-group">
                     <input type="text" id="Name" name="aname" class="form-control" placeholder="Your Name" required="required">
-                    <label for="Name">Your Name</label>
+                    <label for="Name">名字</label>
                   </div>
             </div>
             
@@ -47,13 +47,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <input type="password" id="inputPassword" name="apwd" class="form-control" placeholder="Password" required="required">
-                    <label for="inputPassword">Password</label>
+                    <label for="inputPassword">密码</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                    <label for="confirmPassword">Confirm password</label>
+                    <label for="confirmPassword">重复密码</label>
                   </div>
                 </div>
               </div>
@@ -63,13 +63,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <input type="tel" id="mobile" name="amobile" class="form-control" placeholder="mobile" required="required">
-                    <label for="mobile">mobile</label>
+                    <label for="mobile">手机</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <input type="tel" id="code" name="code" class="form-control" placeholder="code" required="required">
-                    <label for="code">code</label>
+                    <label for="code">验证码</label>
                   </div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <input type="submit" class="btn btn-primary btn-block" value="注册">
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="adminLogin.html">Login Page</a>
+            <a class="d-block small mt-3" href="adminLogin.html">登陆</a>
           </div>
         </div>
       </div>

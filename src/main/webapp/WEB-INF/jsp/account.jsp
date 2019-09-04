@@ -85,11 +85,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
+							购物车
 						</a>
 
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
+							支付
 						</a>
 					</div>
 				</div>
@@ -101,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			My Account
+			账户
 		</h2>
 	</section>	
 
@@ -114,16 +114,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<table class="table-shopping-cart">
 								
 								<tr class="table_head">
-									<th class="column-1">Product</th>
+									<th class="column-1">产品</th>
 									<th class="column-2"></th>
-									<th class="column-3">Price</th>
-									<th class="column-4">PayId</th>
-									<th class="column-5">Color</th>
-									<th class="column-6">Size</th>
+									<th class="column-3">价格</th>
+									<th class="column-4">支付账号</th>
+									<th class="column-5">颜色</th>
+									<th class="column-6">尺寸</th>
 
-									<th class="column-7">Total</th>
-									<th class="column-9">Quantity</th>
-									<th class="column-8">state</th>
+									<th class="column-7">总共</th>
+									<th class="column-9">数量</th>
+									<th class="column-8">收藏</th>
 
 								</tr>
 								

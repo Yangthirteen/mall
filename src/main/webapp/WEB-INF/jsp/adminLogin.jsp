@@ -37,27 +37,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="form-group">
               <div class="form-label-group">
                 <input type="tel" id="Mobile" name="amobile" class="form-control" placeholder="input Mobile" required="required" autofocus="autofocus">
-                <label for="Mobile">Mobile</label>
+                <label for="Mobile">账户</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
                 <input type="password" id="inputPassword" name="apwd" class="form-control" placeholder="Password" required="required">
-                <label for="inputPassword">Password</label>
+                <label for="inputPassword">密码</label>
               </div>
             </div>
             <div class="form-group">
               <div class="checkbox">
                 <label>
                   <input type="checkbox" value="remember-me">
-                  Remember Password
+                  记住密码
                 </label>
               </div>
             </div>
             <input type="button" class="btn btn-primary btn-block" id="login" value="Login">
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="adminRegister.html">Register an Account</a>
+            <a class="d-block small mt-3" href="adminRegister.html">创建账号</a>
           </div>
         </div>
       </div>
