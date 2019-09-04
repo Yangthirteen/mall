@@ -70,11 +70,11 @@
 	</update>
 
 	<insert id="addOrder" parameterType="hashmap">
-		INSERT INTO `mall`.`product_order` (`product_user_id`, `product_order_address`, `product_order_name`, `product_order_telphone`,`product_order_total`,`product_order_createDate`,`product_order_uuid`) VALUES (#{product_user_id}, #{product_order_address}, #{product_order_name}, #{product_order_telphone},#{product_order_total},#{product_order_createDate},#{product_order_uuid})
+		INSERT INTO `mall`.`product_order` (`product_user_id`, `product_order_address`, `product_order_name`, `product_order_telphone`,`product_order_total`,`product_order_createDate`) VALUES (#{product_user_id}, #{product_order_address}, #{product_order_name}, #{product_order_telphone},#{product_order_total},#{product_order_createDate})
 	</insert>
 
 	<select id="updatePay" parameterType="hashmap" resultType="Integer">
-		update product_order set product_pay_state=1 ,product_pay_no=#{product_pay_no} where product_order_uuid=#{product_order_uuid}
+		update product_order set product_pay_state=1 ,product_pay_no=#{product_pay_no} where product_order_id=#{product_order_id}
 	</select>
 
 	<delete id="deleteCartByUid" parameterType="int">
@@ -225,4 +225,10 @@
 	<update id="updateProductCount" parameterType="hashmap">
 		update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id}
 	</update>
+
+	<select id="sumOfCart" parameterType="int" resultType="BigDecimal">
+		SELECT  SUM(product_card_count * product_price)
+		FROM product_card
+				 LEFT JOIN product on product.product_id = product_card.product_id and product_user_id=#{product_user_id};
+	</select>
 </mapper>

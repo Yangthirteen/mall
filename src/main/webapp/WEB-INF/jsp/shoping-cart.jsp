@@ -114,7 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 
 	<!-- Shoping Cart -->
-	 <form class="bg0 p-t-75 p-b-85" method="post" action="subOreder.html">
+	 <form class="bg0 p-t-75 p-b-85" method="post" action="codepay.html">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -248,7 +248,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</span>
 							</div>
 						</div>
-						<input type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" value="Proceed to Checkout" onclick="pay()" >
+						<input type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" value="Proceed to Checkout" onclick="codepay.html" >
 						
 					</div>
 				</div>
@@ -362,13 +362,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function Calculate(e){
 		e.preventDefault();
 	}
-	function pay(){
-		utotal();
-		var price=$('#total').text()
-		$.port("codepay.html",{"price":price},function(){
-			
-		})
-	}
+	//function pay(){
+		//utotal();
+		//var price=$('#total').text()
+	//	$.port("codepay.html",function(){
+	//	})
+	//}
 	
 	</script>
 </body>

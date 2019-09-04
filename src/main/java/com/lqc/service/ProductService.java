@@ -1,5 +1,6 @@
 package com.lqc.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -47,4 +48,7 @@ public interface ProductService {
 	public boolean deleteDimg(int product_dimgId);
 	public boolean insertAddinfo(AddInfo addInfo);
 	public boolean updateProductCount(Map<String,Object> map);
+
+	//查询购物车商品总价
+	public BigDecimal sumOfCart(int product_user_id);
 }

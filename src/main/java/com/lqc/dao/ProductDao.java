@@ -1,5 +1,6 @@
 package com.lqc.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.annotations.Delete;
@@ -105,4 +106,10 @@ public interface ProductDao {
 
 	//@Update("update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id}")
 	public int updateProductCount(Map<String,Object> map);
+
+	//结算购物车，生成订单
+	public int checkout(List<Map<String,Object>> map);
+
+	//查询购物车商品总价
+	public BigDecimal sumOfCart(int product_user_id);
 }

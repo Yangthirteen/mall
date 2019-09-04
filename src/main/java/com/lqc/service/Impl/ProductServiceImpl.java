@@ -1,6 +1,7 @@
 package com.lqc.service.Impl;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -185,6 +186,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public boolean updateProductCount(Map<String, Object> map) {
 		return productDao.updateProductCount(map)>0;
+	}
+
+	@Override
+	public BigDecimal sumOfCart(int product_user_id) {
+		return productDao.sumOfCart(product_user_id);
 	}
 
 }

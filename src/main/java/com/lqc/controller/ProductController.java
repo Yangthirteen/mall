@@ -2,6 +2,7 @@ package com.lqc.controller;
 
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -205,7 +206,7 @@ public class ProductController {
 	 /**
 	 		* Description: 提交订单
 	 	*/
-	@RequestMapping("subOreder")
+	//@RequestMapping("subOreder")
 	public String subOrder(String sum,String name,String address,String phone,HttpSession session,RedirectAttributes redirectAttributes){
 		@SuppressWarnings("unchecked")
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
@@ -255,20 +256,40 @@ public class ProductController {
 		
 	}
 	 /**
-	 		* Description: 支付接口
+	 		* Description: 支付
 	 	*/
 	@RequestMapping("codepay")
-	public String codePay(String price,String type,String pay_id,String param){
+	public String codePay(HttpSession session,HttpServletRequest request) throws ParseException {
 		System.out.println("支付");
-		/*
-		* 接收参数 创建订单
-		*/
-		if(price==null){ 
-			price="1";
-		}
-		//参数有中文则需要URL编码
-		String url="https://codepay.fateqq.com/creat_order/?price="+price+"&pay_id="+pay_id+"&type=1&token=jLYzxLMNCxIjgeP6dDjBUj1Y7RNvXT3d&param="+param+"&act=0&id=161319&debug=0&pay_type=1&notify_url=http://localhost:8080/lqcmall_war_exploded/&return_url=http://localhost:8080/lqcmall_war_exploded/";
-		return "redirect:"+url;
+
+		Date date = new Date();
+		SimpleDateFormat temp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String date2 = temp.format(date);
+		Date date3 = temp.parse(date2);
+
+		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
+		Object id = user.get("id");
+
+
+		Map<String,Object> map =new HashMap<String, Object>();
+		map.put("product_order_address",request.getParameter("address"));
+		map.put("product_order_name",request.getParameter("name"));
+		map.put("product_order_telphone",request.getParameter("phone"));
+		map.put("product_order_createDate",date3);
+		map.put("product_user_id",id);
+		map.put("product_order_total",productService.sumOfCart((int)id));
+
+		System.out.println(session.getAttribute("address"));
+		System.out.println(map);
+		productService.addOrder(map);
+		List<Map<String, Object>> userCart1 = productService.getProductCardByUid((int)user.get("id"));
+
+
+		productService.deleteCartByUid((int)id);
+		List<Map<String, Object>> userCart = productService.getProductCardByUid((int)user.get("id"));
+		session.setAttribute("userCart", userCart);
+
+		return "account";
 	}
 	 /**
 	 		* Description: 获取用户订单 to my account(header)
@@ -437,5 +458,4 @@ public class ProductController {
 		productService.insertAddinfo(addInfo);
 		return "forward:/imageManager.html";
 	}
-	
 }
