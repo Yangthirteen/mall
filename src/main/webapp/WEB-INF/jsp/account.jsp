@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../../images/bg-01.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			My Account
 		</h2>
@@ -120,11 +120,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<th class="column-4">PayId</th>
 									<th class="column-5">Color</th>
 									<th class="column-6">Size</th>
-									
+
 									<th class="column-7">Total</th>
 									<th class="column-9">Quantity</th>
 									<th class="column-8">state</th>
-									
+
 								</tr>
 								
 								<c:forEach items="${orderDetail}" var="c">

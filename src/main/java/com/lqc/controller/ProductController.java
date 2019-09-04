@@ -267,7 +267,7 @@ public class ProductController {
 			price="1";
 		}
 		//参数有中文则需要URL编码
-		String url="https://codepay.fateqq.com/creat_order/?price="+price+"&pay_id="+pay_id+"&type=1&token=jLYzxLMNCxIjgeP6dDjBUj1Y7RNvXT3d&param="+param+"&act=0&id=161319&debug=0&pay_type=1&notify_url=http://lqcnb.cn:8080/lqcmall/pay.html&return_url=http://localhost:8080/lqcmall_war_exploded/";
+		String url="https://codepay.fateqq.com/creat_order/?price="+price+"&pay_id="+pay_id+"&type=1&token=jLYzxLMNCxIjgeP6dDjBUj1Y7RNvXT3d&param="+param+"&act=0&id=161319&debug=0&pay_type=1&notify_url=http://localhost:8080/lqcmall_war_exploded/&return_url=http://localhost:8080/lqcmall_war_exploded/";
 		return "redirect:"+url;
 	}
 	 /**
