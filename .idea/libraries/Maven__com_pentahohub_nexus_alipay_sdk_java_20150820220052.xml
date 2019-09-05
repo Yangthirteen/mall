@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.pentahohub.nexus:alipay-sdk-java:20150820220052">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/pentahohub/nexus/alipay-sdk-java/20150820220052/alipay-sdk-java-20150820220052.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/pentahohub/nexus/alipay-sdk-java/20150820220052/alipay-sdk-java-20150820220052-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/pentahohub/nexus/alipay-sdk-java/20150820220052/alipay-sdk-java-20150820220052-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -8,6 +8,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.lqc.entity.AddInfo;
 import com.lqc.entity.Product;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 public interface ProductService {
 	public List<Map<String,Object>> findProductByProductTypeId(int product_type_id);
 	public List<Map<String,Object>> findAllProduct();
@@ -55,4 +59,10 @@ public interface ProductService {
 
 	//从购物车删除商品
 	public boolean deleteProduct(Map<String,Object> map);
+
+	//添加收藏喜爱
+	public boolean addLikeProduct(Map<String,Object> map);
+
+	//查询收藏列表
+	public List<Map<String, Object>> getColByUid(Map<String,Object> map);
 }

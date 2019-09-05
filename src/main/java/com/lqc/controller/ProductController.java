@@ -484,4 +484,23 @@ public class ProductController {
         else System.out.println("删除失败");
         session.setAttribute("userCart",productService.getProductCardByUid((int)id));
     }
+
+
+    //添加收藏喜爱
+    @RequestMapping("addLikeProduct")
+    public void addLikeProduct(HttpServletRequest request,HttpSession session){
+
+        Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
+        Object id = user.get("id");
+
+        Map<String,Object> map =new HashMap<String, Object>();
+        map.put("product_id",request.getParameter("product_id"));
+        map.put("user_id",id);
+
+        productService.addLikeProduct(map);
+
+        List<Map<String, Object>> collection = productService.getColByUid(map);
+
+        session.setAttribute("colletion",collection);
+    }
 }

@@ -10,6 +10,10 @@ import org.apache.ibatis.annotations.Update;
 
 import com.lqc.entity.AddInfo;
 import com.lqc.entity.Product;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 public interface ProductDao {
 	//@Select("SELECT * from product,product_type where product.product_type_id=product_type.product_type_id and product.product_type_id=#{product_type_id}")
 	public List<Map<String,Object>> findProductByProductTypeId(int product_type_id);
@@ -117,4 +121,10 @@ public interface ProductDao {
 
 	//从购物车删除商品
     public int deleteProduct(Map<String,Object> map);
+
+    //添加收藏喜爱
+    public int addLikeProduct(Map<String,Object> map);
+
+    //查询收藏列表
+    public List<Map<String, Object>> getColByUid(Map<String,Object> map);
 }

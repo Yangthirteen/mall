@@ -202,4 +202,14 @@ public class ProductServiceImpl implements ProductService{
 	    return productDao.deleteProduct(map)>0;
     }
 
+    //添加收藏喜爱
+    public boolean addLikeProduct(Map<String,Object> map){
+	    return (productDao.addLikeProduct(map)>0);
+    }
+
+
+    //查询收藏列表
+    public List<Map<String, Object>> getColByUid(Map<String,Object> map){
+	    return productDao.getColByUid(map);
+    }
 }
