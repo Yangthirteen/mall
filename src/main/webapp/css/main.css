@@ -993,7 +993,6 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .header-cart-item-img::after {
-  content: '\e870';
   font-family: Linearicons-Free;
   font-size: 16px;
   display: -webkit-box;

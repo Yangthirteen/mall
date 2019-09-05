@@ -41,73 +41,80 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="part/header.jsp"></jsp:include>
 
 	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
+    <div class="wrap-header-cart js-panel-cart">
+        <div class="s-full js-hide-cart"></div>
 
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
+        <div class="header-cart flex-col-l p-l-65 p-r-25">
+            <div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					Your Cart
+					购物车
 				</span>
 
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-			
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<c:forEach items="${userCart}" var="c">
-						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="${c.product_card_img}" alt="IMG">
-							</div>
-	
-							<div class="header-cart-item-txt p-t-8">
-								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									${c.product_name}
-								</a>
-	
-								<span class="header-cart-item-info">
+                <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+                    <i class="zmdi zmdi-close"></i>
+                </div>
+            </div>
+
+            <div class="header-cart-content flex-w js-pscroll">
+                <ul class="header-cart-wrapitem w-full">
+                    <c:forEach items="${userCart}" var="c">
+                        <li class="header-cart-item flex-w flex-t m-b-12">
+                            <div class="header-cart-item-img"  >
+                                <a href="shoping-cart.html">
+                                    <img src="${c.product_card_img}" alt="IMG" >
+                                </a>
+                            </div>
+
+                            <div class="header-cart-item-txt p-t-8">
+                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                                    <a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}">
+                                            ${c.product_name}
+                                    </a>
+                                </a>
+
+                                <span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
-							</div>
-						</li>
-					</c:forEach>
-					
-				
-				</ul>
-				
-				<div class="w-full">
-					<!-- <div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
-					</div> -->
+                                <script>
 
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
+                                </script>
+                            </div>
+                        </li>
+                    </c:forEach>
 
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+                </ul>
+
+                <div class="w-full">
+                    <!-- <div class="header-cart-total w-full p-tb-40">
+                        Total: $75.00
+                    </div> -->
+
+                    <div class="header-cart-buttons flex-w w-full">
+                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+                            购物车
+                        </a>
+
+                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                            支付
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 	<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
-				Home
+				主页
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
 			<span class="stext-109 cl4">
-				Shoping Cart
+				购物车
 			</span>
 		</div>
 	</div>
@@ -123,11 +130,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="wrap-table-shopping-cart">
 							<table class="table-shopping-cart">
 								<tr class="table_head">
-									<th class="column-1">Product</th>
+									<th class="column-1">产品</th>
 									<th class="column-2"></th>
-									<th class="column-3">Price</th>
-									<th class="column-4">Quantity</th>
-									<th class="column-5">Total</th>
+									<th class="column-3">价格</th>
+									<th class="column-4">数量</th>
+									<th class="column-5">总计</th>
 								</tr>
 								<c:forEach items="${card}" var="c">
 									<tr class="table_row">
@@ -145,13 +152,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</div>
 												
 												<input class="mtext-104 cl3 txt-center num-product card_count" type="number" name="num-product2" value="${c.product_card_count }">
-	
+
 												<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m amoumt">
 													<i class="fs-16 zmdi zmdi-plus"></i>
 												</div>
 											</div>
 										</td>
-										<td class="column-5">$ <span class="mytotal">${c.amount} </span> </td>
+										<td class="column-5">
+                                            $ <span class="mytotal">${c.amount}</span>
+                                        </td>
 										<td><input type="hidden" value="${c.product_card_id }" class="cid"></td>
 									</tr>
 									
@@ -166,12 +175,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
 									
 								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
-									Apply coupon
+									优惠卷
 								</div>
 							</div>
 
-							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-								Update Cart
+							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10" onclick="location.reload(true)">
+								更新购物车
 							</div>
 						</div>
 					</div>
@@ -326,21 +335,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var price=$(this).parent().parent().parent().find(".myprice").text();
 		var count=$(this).parent().parent().parent().find(".num-product").val();
 		var cid=$(this).parent().parent().parent().find(".cid").val();
-		if((parseFloat(count)>=0)){
+
+		if((parseFloat(count)>0)){
 			total.text((parseFloat(count)*parseFloat(price)).toFixed(2));
 		}
+		else {
+            location.reload(true);
+        }
 		$.post("updateCart.html",{"count":count,"cid":cid},function(data){
 			
 		});
 		
 	});
-	function utotal(){
+    function utotal(){
 		var price=$('.column-5 .mytotal');
 		var sum=0;
 		price.each(function(){
 			sum += Number(this.innerHTML);
-			/* alert(this.textContent);
-			alert(this.innerHTML) */
+
 		})
 		$('#mysum').text(sum.toFixed(2));
 		$('#mysum1').val(sum.toFixed(2));

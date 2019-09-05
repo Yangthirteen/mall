@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="display" uri="http://www.springframework.org/tags/form" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -66,18 +67,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="${c.product_card_img}" alt="IMG">
+							<div class="header-cart-item-img"  >
+								<a href="shoping-cart.html">
+									<img src="${c.product_card_img}" alt="IMG" >
+								</a>
 							</div>
 
 							<div class="header-cart-item-txt p-t-8">
 								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-										${c.product_name}
+									<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}">
+											${c.product_name}
+									</a>
 								</a>
 
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
+								<script>
+
+								</script>
 							</div>
 						</li>
 					</c:forEach>
@@ -92,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							订单
+							购物车
 						</a>
 
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
@@ -140,11 +148,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- Search product -->
 				<div class="dis-none panel-search w-full p-t-10 p-b-15">
 					<div class="bor8 dis-flex p-l-15">
-						<form action="/search.html" method="post">
-							<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04" type="submit">
-								<i class="zmdi zmdi-search"></i>
+						<form action="search.html" method="post">
+							<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="keyword" placeholder="Search"  >
+							<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04" type="submit" >
+								<i class="zmdi zmdi-search" ></i>
 							</button>
-							<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="keyword" placeholder="Search">
 						</form>
 					</div>
 				</div>
