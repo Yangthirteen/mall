@@ -24,12 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							账户
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-                             中文
-						</a>
-
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							支付
+						<a href="adminLogin.html.html" class="flex-c-m trans-04 p-lr-25">
+                             后台
 						</a>
 
 						<c:if test="${sessionScope.user != null}">
@@ -65,11 +61,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="product.html">商店</a>
 							</li>
 
-							<li class="label1" data-label1="hot">
+							<li >
 								<a href="shoping-cart.html">购物车</a>
 							</li>
 
-							<li>
+							<li class="label1" data-label1="hot">
 								<a href="blog.html">博客</a>
 							</li>
 
@@ -143,20 +139,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="account.html" class="flex-c-m p-lr-10 trans-04">
+						<a href="contact.html" class="flex-c-m p-lr-10 trans-04">
 							帮助和解答
 						</a>
 
-						<a href="login.jsp" class="flex-c-m p-lr-10 trans-04">
-							登陆
+						<a href="account.html" class="flex-c-m p-lr-10 trans-04">
+							账户
+						</a>
+
+						<a href="adminLogin.html" class="flex-c-m p-lr-10 trans-04">
+							后台
 						</a>
 
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							中文
-						</a>
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							支付
+							登出
 						</a>
 					</div>
 				</li>
@@ -203,10 +199,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</button>
 
 					<form class="wrap-search-header flex-w p-l-15" action="search.html" method="post">
-						<button class="flex-c-m trans-04" type="submit">
-							<i class="zmdi zmdi-search"></i>
-						</button>
+
 						<input class="plh3" type="text" name="keyword" placeholder="Search...">
+                        <button class="flex-c-m trans-04" type="submit">
+                            <i class="zmdi zmdi-search"></i>
+                        </button>
 					</form>
 
 				</div>
