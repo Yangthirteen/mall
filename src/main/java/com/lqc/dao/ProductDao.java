@@ -114,4 +114,7 @@ public interface ProductDao {
 
 	//查询购物车商品总价
 	public BigDecimal sumOfCart(int product_user_id);
+
+	//从购物车删除商品
+    public int deleteProduct(Map<String,Object> map);
 }

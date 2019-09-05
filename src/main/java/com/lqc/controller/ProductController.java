@@ -469,4 +469,19 @@ public class ProductController {
 		productService.insertAddinfo(addInfo);
 		return "forward:/imageManager.html";
 	}
+
+    //从购物车删除商品
+	@RequestMapping("deleteProduct")
+    public void deleteProduct(HttpSession session,HttpServletRequest request){
+        Map<String,Object> map =new HashMap<String, Object>();
+        Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
+        Object id = user.get("id");
+        map.put("user_id",id);
+        map.put("product_id",request.getParameter("product_id"));
+        if (productService.deleteProduct(map)){
+            System.out.println("删除成功");
+        }
+        else System.out.println("删除失败");
+        session.setAttribute("userCart",productService.getProductCardByUid((int)id));
+    }
 }

@@ -195,4 +195,11 @@ public class ProductServiceImpl implements ProductService{
 		return productDao.sumOfCart(product_user_id);
 	}
 
+
+    //从购物车删除商品
+    @Override
+    public boolean deleteProduct(Map<String,Object> map){
+	    return productDao.deleteProduct(map)>0;
+    }
+
 }

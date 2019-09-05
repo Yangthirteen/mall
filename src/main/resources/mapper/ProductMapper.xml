@@ -235,4 +235,8 @@
 		FROM product_card
 				 LEFT JOIN product on product.product_id = product_card.product_id and product_user_id=#{product_user_id};
 	</select>
+
+    <delete id="deleteProduct" parameterType="hashmap">
+        DELETE from product_card WHERE product_user_id=#{user_id} and product_id=#{product_id};
+    </delete>
 </mapper>

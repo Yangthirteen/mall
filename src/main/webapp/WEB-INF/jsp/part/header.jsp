@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</a>
 
 						<c:if test="${sessionScope.user != null}">
-							<a href="/userOut.html" class="flex-c-m trans-04 p-lr-25">
+							<a href="userOut.html" class="flex-c-m trans-04 p-lr-25">
 								退出
 							</a>
 						</c:if>
