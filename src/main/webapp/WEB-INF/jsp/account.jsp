@@ -99,12 +99,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('/images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			账户
+			<c:if test="${sessionScope.user != null}">
+				${sessionScope.word}${sessionScope.user.name}
+			</c:if>
 		</h2>
-	</section>	
-
+	</section>
 
 	<!-- Content page -->
 	<section class="bg0 p-t-104 p-b-116">
@@ -123,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 									<th class="column-7">总共</th>
 									<th class="column-9">数量</th>
-									<th class="column-8">收藏</th>
+									<th class="column-8">物流状态</th>
 
 								</tr>
 								
@@ -155,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<span>${c.product_card_count}</span>
 										</td>
 										<c:if test="${c.product_order_state ==0}">
-										<td class="column-8">代发货 </td>
+										<td class="column-8">待发货 </td>
 										</c:if>
 										<c:if test="${c.product_order_state ==1}">
 										<td class="column-8">已发货 </td>

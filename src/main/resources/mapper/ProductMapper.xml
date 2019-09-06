@@ -70,7 +70,7 @@
 	</update>
 
 	<insert id="addOrder" parameterType="hashmap">
-		INSERT INTO `mall`.`product_order` (`product_user_id`, `product_order_address`, `product_order_name`, `product_order_telphone`,`product_order_total`,`product_order_createDate`) VALUES (#{product_user_id}, #{product_order_address}, #{product_order_name}, #{product_order_telphone},#{product_order_total},#{product_order_createDate})
+		INSERT INTO `mall`.`product_order` (`product_user_id`,`product_pay_no` ,`product_pay_state`,`product_order_state`, `product_order_address`, `product_order_name`, `product_order_telphone`,`product_order_total`,`product_order_createDate`) VALUES (#{product_user_id},111,1,0, #{product_order_address}, #{product_order_name}, #{product_order_telphone},#{product_order_total},#{product_order_createDate})
 	</insert>
 
 	<select id="updatePay" parameterType="hashmap" resultType="Integer">
@@ -227,7 +227,7 @@
 	</update>
 
 	<select id="getProductCartCount" parameterType="int" resultType="int">
-		SELECT IFNULL(SUM(product_card_count),0) FROM product_card WHERE product_user_id=#{product_user_id}
+		SELECT IFNULL(SUM(product_card_count),0) FROM product_card WHERE product_user_id=#{product_user_id} AND product_cart_state=0
 	</select>
 
 	<select id="sumOfCart" parameterType="int" resultType="BigDecimal">

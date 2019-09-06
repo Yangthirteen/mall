@@ -11,13 +11,7 @@ import com.lqc.service.UserService;
 import com.lqc.utils.EmailUtils;
 import com.lqc.utils.MailUtils;
 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : UserServiceImpl 
- 		* @CreateDate : 2018年12月19日 下午11:20:06 
- 		* @lastModified : 2018年12月19日 下午11:20:06 
- 		* @version :   v1.0
- 	*/  
+
 @Service
 public class UserServiceImpl implements UserService{
 	@Resource
@@ -29,9 +23,9 @@ public class UserServiceImpl implements UserService{
 		map.put("code", code);
 		if(userDao.addUserByEmail(map)>0){
 			/*方式一 */
-			String content = "<html><head></head><body><h1>这是一封激活邮件,激活请点击以下链接</h1><h3><a href='http://lqcnb.cn:8080/lqcmall/code="
-			+ code +"/activateUser.html"+ "'>http://lqcnb.cn:8080/lqcmall/" + code +"/activateUser.html"
-			+ "</href></h3></body></html>";
+			String content = "<html><head></head><body><h1>这是一封激活邮件,激活请点击以下链接</h1><h3><a href='http://localhost:8080/code="
+					+ code +"/activateUser.html"+ "'>http://localhost:8080/" + code +"/activateUser.html"
+					+ "</href></h3></body></html>";
 			new Thread(new MailUtils((String)map.get("email"),content)).start();
 			
 			//方式二  比较慢
@@ -67,8 +61,8 @@ public class UserServiceImpl implements UserService{
 	public boolean SendCodeByEmail(String email) {
 		String code=userDao.getCodeByEmail(email);
 		if(code!=null){
-			String content = "<html><head></head><body><h1>这是一封重置密码邮件,激活请点击以下链接</h1><h3><a href='http://lqcnb.cn:8080/lqcmall/code="
-					+ code +"/resetPassword.html"+ "'>http://lqcnb.cn:8080/lqcmall/" + code +"/resetPassword.html"
+			String content = "<html><head></head><body><h1>这是一封重置密码邮件,激活请点击以下链接</h1><h3><a href='http://localhost:8080/code="
+					+ code +"/resetPassword.html"+ "'>http://localhost:8080/" + code +"/resetPassword.html"
 					+ "</href></h3></body></html>";
 			new Thread(new MailUtils(email,content)).start();
 			return true;

@@ -8,7 +8,7 @@
 	</insert>
 
 	<insert id="addUserByEmail" parameterType="hashmap">
-		insert into user(name,email,password,code) values(#{name},#{email},#{password},#{code})
+		insert into user(name,telphone,email,password,code) values(#{name},#{telphone},#{email},#{password},#{code})
 	</insert>
 
 	<update id="activateUser" parameterType="String">

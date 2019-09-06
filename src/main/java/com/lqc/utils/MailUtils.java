@@ -10,13 +10,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import com.sun.mail.util.MailSSLSocketFactory;
 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : 邮箱工具类 线程方式 响应快
- 		* @CreateDate : 2018年12月19日 下午11:22:19 
- 		* @lastModified : 2018年12月20日 下午21:20:19 
- 		* @version :   v1.0
- 	*/  
+
 public class MailUtils implements Runnable {
 	private String email;// 收件人邮箱
 //	private String code;// 激活码
@@ -32,7 +26,7 @@ public class MailUtils implements Runnable {
 		// 1.创建连接对象javax.mail.Session
 		// 2.创建邮件对象 javax.mail.Message
 		// 3.发送一封激活邮件
-		String from = "1402548358@qq.com";// 发件人电子邮箱
+		String from = "2575773858@qq.com";// 发件人电子邮箱
 		String host = "smtp.qq.com"; // 指定发送邮件的主机smtp.qq.com(QQ)|smtp.163.com(网易)
 
 		Properties properties = System.getProperties();// 获取系统属性
@@ -51,7 +45,7 @@ public class MailUtils implements Runnable {
 			// 1.获取默认session对象
 			Session session = Session.getDefaultInstance(properties, new Authenticator() {
 				public PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication("1402548358@qq.com", "hlyarizzwfjfhihf"); // 发件人邮箱账号、授权码
+					return new PasswordAuthentication("2575773858@qq.com", "xjhowrsnznfbecba"); // 发件人邮箱账号、授权码
 				}
 			});
 

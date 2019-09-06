@@ -34,17 +34,18 @@ public class UserController {
 	private ProductService productService=null;
 	
 	/**
-	 * @param firstName 姓氏
-	 * @param lastName	名字
+	 * @param Name 名字
+	 * @param telphone	电话
 	 * @param inputEmail 邮箱
 	 * @param inputPassword	密码
 	 * @param request	
 	 * @return 转发到登录界面
 	 */
 	@RequestMapping("addUserByEmail")
-	public String addUserByEmail(String firstName,String lastName,String inputEmail,String inputPassword,HttpServletRequest request){
+	public String addUserByEmail(String Name,String telphone,String inputEmail,String inputPassword,HttpServletRequest request){
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("name", firstName+lastName);
+		map.put("name", Name);
+		map.put("telphone",telphone);
 		map.put("email", inputEmail);
 		map.put("password", inputPassword);
 		System.out.println(map);
@@ -102,6 +103,7 @@ public class UserController {
 		session.setAttribute("userCart", userCart);
 		session.setAttribute("collection",collection);
 		System.out.println(user);
+		session.setAttribute("page",1);
 		return "index";
 }
 	/**
@@ -163,5 +165,23 @@ public class UserController {
 		session.setAttribute("userCart",null);
 		session.setAttribute("cartCountNumber",0);
 		return "index";
+	}
+
+	@RequestMapping("blog")
+	public String toBlog(HttpSession session ,HttpServletRequest request){
+		session.setAttribute("page",request.getParameter("page"));
+		return "blog";
+	}
+
+	@RequestMapping("about")
+	public String toAbout(HttpSession session ,HttpServletRequest request){
+		session.setAttribute("page",request.getParameter("page"));
+		return "about";
+	}
+
+	@RequestMapping("contact")
+	public String toContact(HttpSession session ,HttpServletRequest request){
+		session.setAttribute("page",request.getParameter("page"));
+		return "contact";
 	}
 }

@@ -60,11 +60,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
 							<div class="header-cart-item-img">
-								<img src="${c.product_card_img}" alt="IMG">
+								<a href="shoping-cart.html">
+									<img src="${c.product_card_img}" alt="IMG" >
+								</a>
 							</div>
 	
 							<div class="header-cart-item-txt p-t-8">
-								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
 									${c.product_name}
 								</a>
 	

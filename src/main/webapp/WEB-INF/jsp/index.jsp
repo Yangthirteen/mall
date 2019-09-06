@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img"  >
+							<div class="header-cart-item-img">
 								<a href="shoping-cart.html">
 									<img src="${c.product_card_img}" alt="IMG" >
 								</a>
@@ -79,9 +79,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
-								<script>
-
-								</script>
 							</div>
 						</li>
 					</c:forEach>

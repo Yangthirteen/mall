@@ -1,10 +1,13 @@
 package com.lqc.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lqc.entity.Admin;
@@ -42,17 +45,36 @@ public class AdminController {
 	 /**
 	 		* Description: 管理员登入
 	 	*/
-	@RequestMapping("adminLoging")
-	@ResponseBody
-	public String getAdmin(Admin admin1,HttpSession session){
-		System.out.println(admin1);
-		Admin admin = adminService.getAdmin(admin1);
-		if(admin!=null){
-			session.setAttribute("admin", admin);
-			return "yes";
+	@PostMapping("ToAdminLogin")
+	public String getAdmin(@RequestParam("amobile") String amobile, @RequestParam("apwd") String apwd, HttpSession session, HttpServletRequest request){
+		String adminLoginMsg = null;
+		Admin admin = new Admin();
+		admin.setAmobile(amobile);
+		admin.setApwd(apwd);
+		if(adminService.getAdmin(admin)==null){
+			adminLoginMsg = "admin账户名或密码错误，请重试！";
+			request.setAttribute("adminLoginMsg",adminLoginMsg);
+			return "adminLogin";
 		}
-		return "no";
+		else{
+			session.setAttribute("admin",admin);
+			return "orderManager";
+		}
 	}
+
+	/**
+	 * description：转到管理员登录界面
+	 */
+	@RequestMapping("adminSignOn")
+	public String adminSignOn(HttpSession session){
+		if(session.getAttribute("admin")==null){
+			return "adminLogin";
+		}
+		else{
+			return "orderManager";
+		}
+	}
+
 	 /**
 	 		* Description: 管理员退出
 	 	*/

@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img"  >
+							<div class="header-cart-item-img">
 								<a href="shoping-cart.html">
 									<img src="${c.product_card_img}" alt="IMG" >
 								</a>
@@ -81,13 +81,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
-								<script>
-
-								</script>
 							</div>
 						</li>
 					</c:forEach>
-
 
 				</ul>
 
@@ -113,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- favorite -->
 	<jsp:include page="favorite.jsp"></jsp:include>
 
-	
+
 	 <!--P roduct start | Type -->
 	<div class="bg0 m-t-23 p-b-140">
 		<div class="container">
@@ -139,24 +135,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						 Filter
 					</div>
 
-					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-						<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						Search
-					</div>
+					<%--<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">--%>
+						<%--<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>--%>
+						<%--<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>--%>
+						<%--Search--%>
+					<%--</div>--%>
 				</div>
 
 				<!-- Search product -->
-				<div class="dis-none panel-search w-full p-t-10 p-b-15">
-					<div class="bor8 dis-flex p-l-15">
-						<form action="search.html" method="post">
-							<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="keyword" placeholder="Search"  >
-							<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04" type="submit" >
-								<i class="zmdi zmdi-search" ></i>
-							</button>
-						</form>
-					</div>
-				</div>
+				<%--<div class="dis-none panel-search w-full p-t-10 p-b-15">--%>
+					<%--<div class="bor8 dis-flex p-l-15">--%>
+							<%--<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="keyword" placeholder="Search" id="keyword" >--%>
+							<%--<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04" id="clickButton">--%>
+								<%--<i class="zmdi zmdi-search" ></i>--%>
+							<%--</button>--%>
+					<%--</div>--%>
+				<%--</div>--%>
 
 				<!-- Filter -->
 				<div class="dis-none panel-filter w-full p-t-10">
@@ -644,7 +638,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</script>
 <!--===============================================================================================-->
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script>
+	<script type="text/javascript">
 		$('.js-pscroll').each(function(){
 			$(this).css('position','relative');
 			$(this).css('overflow','hidden');

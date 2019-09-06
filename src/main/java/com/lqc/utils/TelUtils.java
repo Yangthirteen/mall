@@ -7,13 +7,7 @@ import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 
-/** 
- 		* @author : lingQiCheng
- 		* @Description : 短信工具类  
- 		* @CreateDate : 2018年12月19日 下午11:23:56 
- 		* @lastModified : 2018年12月19日 下午11:23:56 
- 		* @version :   v1.0
- 	*/  
+
 public class TelUtils {
 	public static String getRgeCode(String tel) {
 		// 短信应用SDK AppID
@@ -29,7 +23,7 @@ public class TelUtils {
 		int templateId = 225482; // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
 		//templateId7839对应的内容是"您的验证码是: {1}"
 		// 签名
-		String smsSign = "学习乐园";
+		String smsSign = "天猫商城";
 		String code = RandomStringUtils.random(6,false, true);
 		try {
 			

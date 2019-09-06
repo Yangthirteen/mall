@@ -21,9 +21,18 @@ public class SearchController {
     @Resource
     private SearchService searchService = null;
     @RequestMapping("search")
-    public String doSearch(@RequestParam("keyword") String keyword, Model model,HttpServletRequest request){
+    public String doSearch(String keyword, Model model,HttpServletRequest request){
+        List<Map<String,Object>> productList =null;
+        productList = searchService.search(keyword);
+        System.out.println("得到了keyword："+keyword);
+        model.addAttribute("productList",productList);
+        return "search";
+    }
 
+    @RequestMapping("searchSecond")
+    public String doSearch(String keyword, Model model){
         List<Map<String,Object>> productList = searchService.search(keyword);
+        System.out.println("得到了keywordSecond："+keyword);
         model.addAttribute("productList",productList);
         return "search";
     }

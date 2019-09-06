@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
      <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Mall Manager</a>
+      <a class="navbar-brand mr-1" href="orderManager.html">Mall Manager</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -46,6 +46,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </form>
 
       <!-- Navbar -->
+         <ul class="navbar-nav ml-auto ml-md-0">
+             <li class="nav-item dropdown no-arrow">
+                 <a href="index.html" class="nav-link dropdown-toggle">
+                     返回主页
+                 </a>
+             </li>
+         </ul>
       <ul class="navbar-nav ml-auto ml-md-0">
 	        <li class="nav-item dropdown no-arrow">
 	          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -245,7 +252,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="adress" class="col-sm-4 control-label">收货地址</label>
+							<label for="address" class="col-sm-4 control-label">收货地址</label>
 							<div class="col-sm-8">
 								<input type="text" class="form-control" id="address" 
 									    name="address">
@@ -264,7 +271,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<label for="state" class="col-sm-4 control-label">订单状态</label>
 							<div class="col-sm-8">
 								<select name="state" id="state">
-									<option value="0">代发货</option>
+									<option value="0">待发货</option>
 									<option value="1">已发货</option>
 									<option value="2">已完成</option>
 								</select>
@@ -319,7 +326,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function logout(){
 		$.post("adminOut.html",{},function(data){
 			if(data=="ok")
-				location.assign("adminLogin.html");
+				location.assign("index.html");
 		});
 	}
 	</script>

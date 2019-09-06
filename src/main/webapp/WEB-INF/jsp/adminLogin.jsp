@@ -31,9 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">后台登陆</div>
+        <div class="card-header">管理员登陆</div>
         <div class="card-body">
-          <form action="adminlogin.html" method="post" id="form1">
+          <form action="ToAdminLogin.html" method="post" id="form1">
             <div class="form-group">
               <div class="form-label-group">
                 <input type="tel" id="Mobile" name="amobile" class="form-control" placeholder="input Mobile" required="required" autofocus="autofocus">
@@ -54,11 +54,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </label>
               </div>
             </div>
-            <input type="button" class="btn btn-primary btn-block" id="login" value="Login">
+            <input type="submit" class="btn btn-primary btn-block" id="login" value="Login">
           </form>
-          <div class="text-center">
-            <a class="d-block small mt-3" href="adminRegister.html">创建账号</a>
-          </div>
+          <%--<div class="text-center">--%>
+            <%--<a class="d-block small mt-3" href="adminRegister.html">创建账号</a>--%>
+          <%--</div>--%>
         </div>
       </div>
     </div>
@@ -69,19 +69,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-	<script type="text/javascript">
-		
-	$('#login').click(function(){
-			$.post("adminLoging.html",$('#form1').serialize(),function(data){
-				if(data=='yes'){
-					location.assign("orderManager.html");
-				}else{
-					location.assign("adminLogin.html");
-				}
-			});
-			
-		});
-	</script>
+	<%--<script type="text/javascript">--%>
+		<%----%>
+	<%--$('#login').click(function(){--%>
+			<%--$.post("adminLogin.html",$('#form1').serialize(),function(data){--%>
+				<%--// if(data=='yes'){--%>
+				<%--// 	location.assign("orderManager.html");--%>
+				<%--// }else{--%>
+				<%--// 	location.assign("adminLogin.html");--%>
+				<%--// }--%>
+			<%--});--%>
+			<%----%>
+		<%--});--%>
+	<%--</script>--%>
+
+    <%
+      String adminLoginMsg = (String)request.getAttribute("adminLoginMsg");         // 获取错误属性
+      if(adminLoginMsg != null) {
+    %>
+    <script type="text/javascript" language="javascript">
+        alert("<%=adminLoginMsg%>");
+    </script>
+    <%
+      }
+    %>
   </body>
 
 </html>

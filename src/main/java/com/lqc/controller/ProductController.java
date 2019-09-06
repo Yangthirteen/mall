@@ -49,7 +49,7 @@ public class ProductController {
 			cartCountNumber = productService.getProductCartCount((int)user.get("id"));
 		}
 		session.setAttribute("cartCountNumber", cartCountNumber);
-
+		session.setAttribute("page",request.getParameter("page"));
 		return "index";
 	}
 	 /**
@@ -58,11 +58,12 @@ public class ProductController {
 	 		* @return productAll productTypeAll
 	 	*/
 	@RequestMapping("product")
-	public String bashMessageToProduct(HttpServletRequest request){
+	public String bashMessageToProduct(HttpServletRequest request,HttpSession session){
 		List<Map<String, Object>> productAll = productService.findAllProduct();
 		List<Map<String, Object>> productTypeAll = productService.findAllProductType();
 		request.setAttribute("productAll", productAll);
 		request.setAttribute("productTypeAll", productTypeAll);
+		session.setAttribute("page",request.getParameter("page"));
 		return "product";
 	}
 	 /**
@@ -175,12 +176,13 @@ public class ProductController {
 	 		* @return 转发到shoping-cart
 	 	*/
 	@RequestMapping("shoping-cart")
-	public String getProductCardByUid(Model model,HttpSession session){
+	public String getProductCardByUid(Model model,HttpSession session ,HttpServletRequest request){
 		@SuppressWarnings("unchecked")
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
 		List<Map<String, Object>> productCardByUid = productService.getProductCardByUid((int)user.get("id"));
 		model.addAttribute("card", productCardByUid);
 		session.setAttribute("userCart", productCardByUid);
+		session.setAttribute("page",request.getParameter("page"));
 		return "shoping-cart";
 	}
 	 /**
@@ -292,10 +294,14 @@ public class ProductController {
 		System.out.println(session.getAttribute("address"));
 		System.out.println(map);
 		productService.addOrder(map);
-		List<Map<String, Object>> userCart1 = productService.getProductCardByUid((int)user.get("id"));
 
+		Map<String,Object> map1 =new HashMap<String, Object>();
+		map1.put("product_pay_no","111");
+		map1.put("product_user_id",id.toString());
+		System.out.println(map1);
+		productService.updateCartStateAndPayNoByUid(map1);
 
-		productService.deleteCartByUid((int)id);
+//		productService.deleteCartByUid((int)id);
 		List<Map<String, Object>> userCart = productService.getProductCardByUid((int)user.get("id"));
 		session.setAttribute("userCart", userCart);
 
@@ -310,6 +316,19 @@ public class ProductController {
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
 		List<Map<String, Object>> orderDetail = productService.getUserOrderDetailByUid((int)user.get("id"));
 		model.addAttribute("orderDetail", orderDetail);
+		Date now = new Date();
+		int hour = now.getHours();
+		if(hour<6){
+			session.setAttribute("word","夜深了，早些休息 w(ﾟДﾟ)w    ");
+		} else if (hour<12) {
+			session.setAttribute("word","上午好 （づ￣3￣）づ╭❤～    ");
+		}else if (hour<13) {
+			session.setAttribute("word","中午好 (๑•̀ㅂ•́)و✧    ");
+		}else if (hour<18) {
+			session.setAttribute("word","下午好 ︿(￣︶￣)︿    ");
+		}else{
+			session.setAttribute("word","晚上好 ♪(^∇^*)    ");
+		}
 		return "account";
 		
 	}

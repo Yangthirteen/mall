@@ -167,11 +167,20 @@
         </div>
 
         <!-- Load more -->
-        <div class="flex-c-m flex-w w-full p-t-45">
-            <a href="product.html" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-                更多
-            </a>
-        </div>
+        <c:if test="${not empty productList}">
+            <div class="flex-c-m flex-w w-full p-t-45">
+                <a href="product.html" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                    更多
+                </a>
+            </div>
+        </c:if>
+        <c:if test="${empty productList}">
+            <div class="flex-c-m flex-w w-full p-t-45">
+                <a href="product.html" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                    搜索不到您想要的，找找其他的吧
+                </a>
+            </div>
+        </c:if>
     </div>
 </div>
 

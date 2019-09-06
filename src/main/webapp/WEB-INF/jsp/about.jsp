@@ -105,11 +105,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- favorite -->
 	<jsp:include page="favorite.jsp"></jsp:include>
 
-	
+
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../../images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			关于
+			关于我们
 		</h2>
 	</section>	
 

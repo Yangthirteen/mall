@@ -60,14 +60,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
 							<div class="header-cart-item-img">
-								<img src="${c.product_card_img}" alt="IMG">
-							</div>
-	
-							<div class="header-cart-item-txt p-t-8">
-								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									${c.product_name}
+								<a href="shoping-cart.html">
+									<img src="${c.product_card_img}" alt="IMG" >
 								</a>
-	
+							</div>
+
+							<div class="header-cart-item-txt p-t-8">
+								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+										${c.product_name}
+								</a>
+
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
@@ -101,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../../images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			Contact
+			联系我们
 		</h2>
 	</section>	
 
