@@ -74,10 +74,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 
 							<div class="header-cart-item-txt p-t-8">
-								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}">
-											${c.product_name}
-									</a>
+								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+										${c.product_name}
 								</a>
 
 								<span class="header-cart-item-info">
@@ -111,6 +109,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
+
+	<!-- favorite -->
+	<jsp:include page="favorite.jsp"></jsp:include>
 
 	
 	 <!--P roduct start | Type -->
@@ -657,6 +658,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				ps.update();
 			})
 		});
+		function fav(pid){
+			$.post("addLikeProduct.html",{"product_id":pid},function(data){
+			});
+			window.location.reload();
+		}
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>

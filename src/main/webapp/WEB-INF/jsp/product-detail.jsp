@@ -72,18 +72,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 	
 							<div class="header-cart-item-txt p-t-8">
-								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}">
+								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
 									${c.product_name}
-									</a>
 								</a>
 	
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
-								<script>
 
-								</script>
 							</div>
 						</li>
 					</c:forEach>
@@ -110,6 +106,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 
+	<!-- favorite -->
+	<jsp:include page="favorite.jsp"></jsp:include>
 
 	<!-- breadcrumb -->
 	<div class="container">
@@ -224,7 +222,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</div>
 									</div>
 									<input type="hidden" value="${user.id}" id="uid">
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" onclick="Card(${deailProduct.product_id})">
+									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04  js-addcart-detail" onclick="Card(${deailProduct.product_id})">
 										添加购物车
 									</button>
 								</div>
@@ -234,9 +232,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!--  -->
 						<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 							<div class="flex-m bor9 p-r-10 m-r-11">
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+								<button class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail " data-tooltip="favorite" onclick="fav(${deailProduct.product_id})" >
 									<i class="zmdi zmdi-favorite"></i>
-								</a>
+								</button>
 							</div>
 
 							<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
@@ -586,20 +584,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
 
-				$(this).addClass('js-addedwish-detail');
+			<!--	$(this).addClass('js-addedwish-detail');
 				$(this).off('click');
+                -->
 			});
 		});
 
 		/*---------------------------------------------*/
-
 		$('.js-addcart-detail').each(function(){
+
 			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to cart !", "success");
 			});
 		});
-	
+
 	</script>
 <!--===============================================================================================-->
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -641,8 +640,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var count=$('#num-product').val();
 		$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
 		});
-        window.location.reload();
+		window.location.reload();
+
 	}
+	function fav(pid){
+		$.post("addLikeProduct.html",{"product_id":pid},function(data){
+		});
+		window.location.reload();
+
+	}
+
 	</script>
 </body>
 </html>

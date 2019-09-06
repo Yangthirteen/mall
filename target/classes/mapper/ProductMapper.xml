@@ -223,7 +223,7 @@
 	</insert>
 
 	<update id="updateProductCount" parameterType="hashmap">
-		update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id}
+		update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id};
 	</update>
 
 	<select id="getProductCartCount" parameterType="int" resultType="int">
@@ -235,4 +235,20 @@
 		FROM product_card
 				 LEFT JOIN product on product.product_id = product_card.product_id and product_user_id=#{product_user_id};
 	</select>
+
+    <delete id="deleteProduct" parameterType="hashmap">
+        DELETE from product_card WHERE product_user_id=#{user_id} and product_id=#{product_id};
+    </delete>
+
+    <insert id="addLikeProduct" parameterType="hashmap">
+        insert into collection (product_id,user_id) values (#{product_id},#{user_id});
+    </insert>
+
+    <select id="getColByUid" parameterType="hashmap" resultType="hashmap">
+        select p.product_img,p.product_name, p.product_dimg_id, p.product_type_id,p.product_id from product as p,collection as c where p.product_id=c.product_id and c.user_id=#{user_id}
+    </select>
+
+    <delete id="deleteProFroCol" parameterType="hashmap">
+        delete from collection where product_id=#{product_id} and user_id=#{user_id};
+    </delete>
 </mapper>

@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
 			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					Your Cart
+					购物车
 				</span>
 
 				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
@@ -59,18 +59,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img">
-								<img src="${c.product_card_img}" alt="IMG">
+							<div class="header-cart-item-img"  >
+								<a href="shoping-cart.html">
+									<img src="${c.product_card_img}" alt="IMG" >
+								</a>
 							</div>
 
 							<div class="header-cart-item-txt p-t-8">
-								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
 										${c.product_name}
 								</a>
 
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
+								<script>
+
+								</script>
 							</div>
 						</li>
 					</c:forEach>
@@ -85,17 +90,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
+							购物车
 						</a>
 
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
+							支付
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- favorite -->
+	<jsp:include page="favorite.jsp"></jsp:include>
 
 	
 	<!-- Title page -->

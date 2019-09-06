@@ -72,10 +72,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 
 							<div class="header-cart-item-txt p-t-8">
-								<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-									<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}">
-											${c.product_name}
-									</a>
+								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+										${c.product_name}
 								</a>
 
 								<span class="header-cart-item-info">
@@ -110,6 +108,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 
+	<!-- favorite -->
+    <jsp:include page="favorite.jsp"></jsp:include>
 
 	<!-- Slider -->
 	<section class="section-slide">
@@ -682,9 +682,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<!--  -->
 							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 								<div class="flex-m bor9 p-r-10 m-r-11">
-									<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-										<i class="zmdi zmdi-favorite"></i>
-									</a>
+                                    <button class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail " data-tooltip="favorite" onclick="fav(${deailProduct.product_id})" >
+                                        <i class="zmdi zmdi-favorite"></i>
+                                    </button>
 								</div>
 
 								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
@@ -715,6 +715,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
+
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -804,6 +805,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				ps.update();
 			})
 		});
+        function fav(pid){
+            $.post("addLikeProduct.html",{"product_id":pid},function(data){
+            });
+            window.location.reload();
+        }
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>

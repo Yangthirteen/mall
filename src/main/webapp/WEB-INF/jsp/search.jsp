@@ -74,10 +74,8 @@
                         </div>
 
                         <div class="header-cart-item-txt p-t-8">
-                            <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                <a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}">
-                                        ${c.product_name}
-                                </a>
+                            <a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+                                    ${c.product_name}
                             </a>
 
                             <span class="header-cart-item-info">
@@ -111,6 +109,9 @@
         </div>
     </div>
 </div>
+
+<!-- favorite -->
+<jsp:include page="favorite.jsp"></jsp:include>
 
 <!-- searchproduct  -->
 <div class="bg0 m-t-23 p-b-140">
@@ -151,10 +152,11 @@
                                 </div>
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
-                                    <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                    <button class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" data-tooltip="favorite" onclick="fav(${pa.product_id})" >
                                         <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
                                         <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-                                    </a>
+                                    </button>
+
                                 </div>
                             </div>
                         </div><!-- /Block2 -->
@@ -282,6 +284,11 @@
             ps.update();
         })
     });
+    function fav(pid){
+        $.post("addLikeProduct.html",{"product_id":pid},function(data){
+        });
+        window.location.reload();
+    }
 </script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>

@@ -66,11 +66,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
 
                             <div class="header-cart-item-txt p-t-8">
-                                <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                    <a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}">
-                                            ${c.product_name}
-                                    </a>
-                                </a>
+								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+										${c.product_name}
+								</a>
 
                                 <span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
@@ -103,6 +101,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
+
+    <!-- favorite -->
+    <jsp:include page="favorite.jsp"></jsp:include>
 
 
 	<!-- breadcrumb -->
@@ -151,7 +152,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<i class="fs-16 zmdi zmdi-minus" ></i>
 												</div>
 												
-												<input class="mtext-104 cl3 txt-center num-product card_count" type="number" name="num-product2" value="${c.product_card_count }">
+												<input class="mtext-104 cl3 txt-center num-product card_count" type="number" name="num-product2" value="${c.product_card_count }"/>
 
 												<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m amoumt">
 													<i class="fs-16 zmdi zmdi-plus"></i>
@@ -336,12 +337,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var count=$(this).parent().parent().parent().find(".num-product").val();
 		var cid=$(this).parent().parent().parent().find(".cid").val();
 
-		if((parseFloat(count)>0)){
+		if((parseFloat(count)>=0)){
 			total.text((parseFloat(count)*parseFloat(price)).toFixed(2));
 		}
-		else {
-            location.reload(true);
-        }
+
 		$.post("updateCart.html",{"count":count,"cid":cid},function(data){
 			
 		});

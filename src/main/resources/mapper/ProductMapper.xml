@@ -245,7 +245,7 @@
     </insert>
 
     <select id="getColByUid" parameterType="hashmap" resultType="hashmap">
-        select p.product_card_img,p.product_name, p.product_dimg_id, p.product_type_id,p.product_id from product as p,collection as c where p.product_id=c.product_id and c.user_id=#{user_id}
+        select p.product_img,p.product_name, p.product_dimg_id, p.product_type_id,p.product_id from product as p,collection as c where p.product_id=c.product_id and c.user_id=#{user_id}
     </select>
 
     <delete id="deleteProFroCol" parameterType="hashmap">
