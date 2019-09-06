@@ -217,4 +217,9 @@ public class ProductServiceImpl implements ProductService{
     public boolean deleteProFroCol(Map<String,Object> map){
 	    return (productDao.deleteProFroCol(map)>0);
     }
+
+    //查询收藏表是否已有该物品
+    public boolean colIsExit(Map<String,Object> map){
+	    return (productDao.colIsExit(map)>0);
+    }
 }

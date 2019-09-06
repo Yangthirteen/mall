@@ -130,4 +130,7 @@ public interface ProductDao {
 
     //从收藏删除商品
     public int deleteProFroCol(Map<String,Object> map);
+
+    //查询收藏表是否已有该物品
+	public int colIsExit(Map<String,Object> map);
 }

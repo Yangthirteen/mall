@@ -241,7 +241,7 @@
     </delete>
 
     <insert id="addLikeProduct" parameterType="hashmap">
-        insert into collection (product_id,user_id) values (#{product_id},#{user_id});
+		INSERT INTO collection (product_id,user_id) SELECT #{product_id},#{user_id}
     </insert>
 
     <select id="getColByUid" parameterType="hashmap" resultType="hashmap">
@@ -249,6 +249,10 @@
     </select>
 
     <delete id="deleteProFroCol" parameterType="hashmap">
-        delete from collection where product_id=#{product_id} and user_id=#{user_id};
+        delete from collection where product_id=#{product_id} and user_id=#{user_id} ;
     </delete>
+
+	<select id="colIsExit" parameterType="hashmap" resultType="int">
+		select COUNT(*) from collection where product_id = #{product_id} and user_id=#{user_id};
+	</select>
 </mapper>

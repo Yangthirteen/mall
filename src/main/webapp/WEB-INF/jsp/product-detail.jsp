@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="part/header.jsp"></jsp:include>
 
 	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
+	<div id="cart" class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
@@ -584,15 +584,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
 
-			<!--	$(this).addClass('js-addedwish-detail');
+				$(this).addClass('js-addedwish-detail');
 				$(this).off('click');
-                -->
 			});
 		});
 
 		/*---------------------------------------------*/
-		$('.js-addcart-detail').each(function(){
 
+		$('.js-addcart-detail').each(function(){
 			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to cart !", "success");
@@ -638,18 +637,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var color=$('#color').val();
 		var size=$('#size').val();
 		var count=$('#num-product').val();
-		$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
+		//$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
+
+		//});
+		$.ajax({
+            url : "addCard.html",
+            data : {"color":color,"size":size,"pid":pid,"count":count,"uid":uid},
+            type : 'post',
+            async: true,
+			complete:function(e){
+            	$('#cart').load("" + ' #cart >*',function(){
+			jQuery.getScript("js/cart.js")
+		})
+           }
 		});
-		window.location.reload();
+		//window.location.reload();
 
 	}
 	function fav(pid){
-		$.post("addLikeProduct.html",{"product_id":pid},function(data){
-		});
-		window.location.reload();
+
+        $.ajax({
+            url : "addLikeProduct.html",
+            data : {"product_id":pid},
+            type : 'post',
+            async: true,
+            complete:function(e){
+                $('#fav').load("" + ' #fav >*',function(){
+                    jQuery.getScript("js/cart.js")
+                })
+            }
+        });
 
 	}
-
 	</script>
 </body>
 </html>

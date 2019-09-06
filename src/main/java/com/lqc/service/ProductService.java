@@ -68,4 +68,7 @@ public interface ProductService {
 
     //从收藏删除商品
     public boolean deleteProFroCol(Map<String,Object> map);
+
+	//查询收藏表是否已有该物品
+	public boolean colIsExit(Map<String,Object> map);
 }

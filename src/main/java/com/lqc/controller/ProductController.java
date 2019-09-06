@@ -110,7 +110,6 @@ public class ProductController {
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
 		List<Map<String, Object>> userCart = productService.getProductCardByUid((int)user.get("id"));
 		session.setAttribute("userCart", userCart);
-
 	}
 	 /**
 	 		* Description: 把评论添加到数据库
@@ -497,7 +496,9 @@ public class ProductController {
         map.put("product_id",request.getParameter("product_id"));
         map.put("user_id",id);
 
-        productService.addLikeProduct(map);
+        //if (!productService.colIsExit(map)){
+			productService.addLikeProduct(map);
+		//}
 
         List<Map<String, Object>> collection = productService.getColByUid(map);
 

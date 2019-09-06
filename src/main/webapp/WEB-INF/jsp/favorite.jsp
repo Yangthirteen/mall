@@ -7,8 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="wrap-header-cart js-panel-fav">
-    <div id="=favth" class="s-full js-hide-fav"></div>
+<div id="fav" class="wrap-header-cart js-panel-fav"  >
+    <div  class="s-full js-hide-fav"></div>
 
     <div class="header-cart flex-col-l p-l-65 p-r-25">
         <div class="header-cart-title flex-w flex-sb-m p-b-8">
