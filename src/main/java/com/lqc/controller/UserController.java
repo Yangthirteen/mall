@@ -95,9 +95,12 @@ public class UserController {
 		List<Map<String, Object>> productTypeAll = productService.findAllProductType();
 		request.setAttribute("productAll", productAll);
 		request.setAttribute("productTypeAll", productTypeAll);
+		map.put("user_id",(int)user.get("id"));
 		List<Map<String, Object>> userCart = productService.getProductCardByUid((int)user.get("id"));
+		List<Map<String, Object>> collection = productService.getColByUid(map);
 		session.setAttribute("user", user);
 		session.setAttribute("userCart", userCart);
+		session.setAttribute("collection",collection);
 		System.out.println(user);
 		return "index";
 }

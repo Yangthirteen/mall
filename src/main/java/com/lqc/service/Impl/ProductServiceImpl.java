@@ -212,4 +212,9 @@ public class ProductServiceImpl implements ProductService{
     public List<Map<String, Object>> getColByUid(Map<String,Object> map){
 	    return productDao.getColByUid(map);
     }
+
+    //从收藏删除商品
+    public boolean deleteProFroCol(Map<String,Object> map){
+	    return (productDao.deleteProFroCol(map)>0);
+    }
 }

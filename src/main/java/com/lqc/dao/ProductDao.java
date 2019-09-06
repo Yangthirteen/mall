@@ -127,4 +127,7 @@ public interface ProductDao {
 
     //查询收藏列表
     public List<Map<String, Object>> getColByUid(Map<String,Object> map);
+
+    //从收藏删除商品
+    public int deleteProFroCol(Map<String,Object> map);
 }

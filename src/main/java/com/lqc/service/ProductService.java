@@ -65,4 +65,7 @@ public interface ProductService {
 
 	//查询收藏列表
 	public List<Map<String, Object>> getColByUid(Map<String,Object> map);
+
+    //从收藏删除商品
+    public boolean deleteProFroCol(Map<String,Object> map);
 }

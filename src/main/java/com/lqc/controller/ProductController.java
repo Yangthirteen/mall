@@ -503,4 +503,17 @@ public class ProductController {
 
         session.setAttribute("colletion",collection);
     }
+
+
+    //从收藏删除商品
+    public void deleteProFroCol(HttpServletRequest request,HttpSession session){
+        Map<String,Object> map=new HashMap<String, Object>();
+        Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
+        Object id = user.get("id");
+
+        map.put("product_id",request.getParameter("product_id"));
+        map.put("user_id",id);
+
+        session.setAttribute("collection",productService.getColByUid(map));
+    }
 }
