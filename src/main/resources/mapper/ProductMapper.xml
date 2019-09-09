@@ -106,6 +106,7 @@
 		AND cd.product_user_id = o.product_user_id
 		AND cd.product_pay_no = o.product_pay_no
 		AND cd.product_user_id = #{product_user_id}
+		group by cd.product_card_id
 	</select>
 
 	<select id="getOrderDetail" resultType="hashmap">

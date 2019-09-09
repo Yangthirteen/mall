@@ -284,7 +284,7 @@ public class ProductController {
 	 		* Description: 支付
 	 	*/
 	@RequestMapping("codepay")
-	public String codePay(HttpSession session,HttpServletRequest request) throws ParseException {
+	public String codePay(HttpSession session,HttpServletRequest request,Model model) throws ParseException {
 		System.out.println("支付");
 
 		Date date = new Date();
@@ -317,6 +317,9 @@ public class ProductController {
 //		productService.deleteCartByUid((int)id);
 		List<Map<String, Object>> userCart = productService.getProductCardByUid((int)user.get("id"));
 		session.setAttribute("userCart", userCart);
+
+        List<Map<String, Object>> orderDetail = productService.getUserOrderDetailByUid((int)user.get("id"));
+        model.addAttribute("orderDetail", orderDetail);
 
 		return "account";
 	}
@@ -541,14 +544,20 @@ public class ProductController {
 
 
     //从收藏删除商品
+	@RequestMapping("deleteProFroCol")
     public void deleteProFroCol(HttpServletRequest request,HttpSession session){
         Map<String,Object> map=new HashMap<String, Object>();
         Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
         Object id = user.get("id");
 
+
+
         map.put("product_id",request.getParameter("product_id"));
         map.put("user_id",id);
-
+        productService.deleteProFroCol(map);
+		int favCount=productService.getNumberOfCol((int)id);
+        session.setAttribute("favCount",favCount);
+		System.out.println(favCount);
         session.setAttribute("collection",productService.getColByUid(map));
     }
 }

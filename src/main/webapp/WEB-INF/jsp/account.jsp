@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('/images/bg-01.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			<c:if test="${sessionScope.user != null}">
 				${sessionScope.word}${sessionScope.user.name}
@@ -230,6 +230,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				ps.update();
 			})
 		});
+		function fav(pid){
+
+			$.ajax({
+				url : "addLikeProduct.html",
+				data : {"product_id":pid},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#fav').load("" + ' #fav >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#menu').load("" + ' #menu >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+				}
+			});
+
+		}
+		function deleate1(did) {
+			$.ajax({
+				url : "deleteProFroCol.html",
+				data : {"product_id":did},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#fav').load("" + ' #fav >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#menu2').load("" + ' #menu2 >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+				}
+			});
+		}
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>

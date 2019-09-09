@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a class="stext-107 cl7 hov-cl1 trans-04"  href="#">
 								女性
 							</a>
 						</li>

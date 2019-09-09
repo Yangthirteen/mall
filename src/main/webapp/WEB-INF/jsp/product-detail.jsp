@@ -590,11 +590,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 
 		/*---------------------------------------------*/
-
 		$('.js-addcart-detail').each(function(){
+
 			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
+				swal(nameProduct, "添加成功 !", "success");
 			});
 		});
 
@@ -648,7 +648,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             async: true,
 			complete:function(e){
 				$('#menu').load("" + ' #menu >*',function(){
-					jQuery.getScript("js/main.js")
+					jQuery.getScript("js/cart.js")
 				})
             	$('#cart').load("" + ' #cart >*',function(){
 			jQuery.getScript("js/cart.js")
@@ -671,12 +671,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     jQuery.getScript("js/cart.js")
                 })
 				$('#menu').load("" + ' #menu >*',function(){
-					jQuery.getScript("js/main.js")
+					jQuery.getScript("js/cart.js")
 				})
             }
         });
 
 	}
+	function deleate1(did) {
+		$.ajax({
+			url : "deleteProFroCol.html",
+			data : {"product_id":did},
+			type : 'post',
+			async: true,
+			complete:function(e){
+				$('#fav').load("" + ' #fav >*',function(){
+					jQuery.getScript("js/cart.js")
+				})
+				$('#menu2').load("" + ' #menu2 >*',function(){
+					jQuery.getScript("js/cart.js")
+				})
+				swal("", "删除成功", "success");
+			}
+		});
+    }
+
 	</script>
 </body>
 </html>

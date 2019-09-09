@@ -802,11 +802,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				ps.update();
 			})
 		});
-        function fav(pid){
-            $.post("addLikeProduct.html",{"product_id":pid},function(data){
-            });
-            window.location.reload();
-        }
+		function fav(pid){
+
+			$.ajax({
+				url : "addLikeProduct.html",
+				data : {"product_id":pid},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#fav').load("" + ' #fav >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#menu').load("" + ' #menu >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+				}
+			});
+
+		}
+		function deleate1(did) {
+			$.ajax({
+				url : "deleteProFroCol.html",
+				data : {"product_id":did},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#fav').load("" + ' #fav >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#menu2').load("" + ' #menu2 >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+				}
+			});
+		}
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>

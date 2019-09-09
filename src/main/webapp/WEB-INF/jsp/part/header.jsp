@@ -120,19 +120,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>	
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
+					<div id="menu2" class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
 						<div id="show_cart1" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify=${cartCountNumber}>
 							<i class="zmdi zmdi-shopping-cart"></i>
-							<script>
-								console.log(${cartCountNumber});
-							</script>
+
 						</div>
 
-						<div id="show_fav1" class=" icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-fav" data-notify="${favCount}">
+						<div id="fav1" class=" icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-fav" data-notify="${favCount}">
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</div>
 					</div>
@@ -141,7 +139,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 
 		<!-- Header Mobile -->
-		<div class="wrap-header-mobile">
+		<div id="menu1" class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
 				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
