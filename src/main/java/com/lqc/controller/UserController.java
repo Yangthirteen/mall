@@ -87,6 +87,7 @@ public class UserController {
 
 		//购物车图标右上角的数量显示
 		int cartCountNumber = 0;
+		int favCount=0;
 		if(user!=null){
 			cartCountNumber = productService.getProductCartCount((int)user.get("id"));
 		}
@@ -102,8 +103,10 @@ public class UserController {
 		session.setAttribute("user", user);
 		session.setAttribute("userCart", userCart);
 		session.setAttribute("collection",collection);
+		favCount=collection.size();
 		System.out.println(user);
 		session.setAttribute("page",1);
+		session.setAttribute("favCount",favCount);
 		return "index";
 }
 	/**
@@ -164,6 +167,7 @@ public class UserController {
 		session.setAttribute("user",null);
 		session.setAttribute("userCart",null);
 		session.setAttribute("cartCountNumber",0);
+		session.setAttribute("favCount",0);
 		return "index";
 	}
 

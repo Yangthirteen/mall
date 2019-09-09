@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- Header -->
 		<header class="header-v4">
 		<!-- Header desktop -->
-		<div class="container-menu-desktop">
+		<div id="menu" class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
@@ -125,11 +125,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify=${cartCountNumber}>
+						<div id="show_cart1" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify=${cartCountNumber}>
 							<i class="zmdi zmdi-shopping-cart"></i>
+							<script>
+								console.log(${cartCountNumber});
+							</script>
 						</div>
 
-						<div class=" icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-fav" data-notify="0">
+						<div id="show_fav1" class=" icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-fav" data-notify="${favCount}">
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</div>
 					</div>
@@ -150,11 +153,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<i class="zmdi zmdi-search"></i>
 				</div>
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify=${cartCountNumber}>
+				<div id="show_cart" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify=${cartCountNumber}>
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-                <div class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-fav" data-notify="0">
+                <div id="show_fav" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-fav" data-notify="0">
                     <i class="zmdi zmdi-favorite-outline"></i>
                 </div >
 

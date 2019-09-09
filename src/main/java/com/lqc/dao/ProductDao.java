@@ -133,4 +133,7 @@ public interface ProductDao {
 
     //查询收藏表是否已有该物品
 	public int colIsExit(Map<String,Object> map);
+
+	//查询收藏数目
+    public int getNumberOfCol(int user_id);
 }

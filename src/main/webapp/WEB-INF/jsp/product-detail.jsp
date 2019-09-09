@@ -637,6 +637,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var color=$('#color').val();
 		var size=$('#size').val();
 		var count=$('#num-product').val();
+		var cartCountNumber=$()
 		//$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
 
 		//});
@@ -646,12 +647,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             type : 'post',
             async: true,
 			complete:function(e){
+				$('#menu').load("" + ' #menu >*',function(){
+					jQuery.getScript("js/main.js")
+				})
             	$('#cart').load("" + ' #cart >*',function(){
 			jQuery.getScript("js/cart.js")
-		})
-           }
 		});
+
+		}});
 		//window.location.reload();
+
 
 	}
 	function fav(pid){
@@ -665,6 +670,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 $('#fav').load("" + ' #fav >*',function(){
                     jQuery.getScript("js/cart.js")
                 })
+				$('#menu').load("" + ' #menu >*',function(){
+					jQuery.getScript("js/main.js")
+				})
             }
         });
 

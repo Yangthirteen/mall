@@ -43,12 +43,21 @@ public class ProductController {
 
 		//购物车图标右上角的数量显示
 		int cartCountNumber = 0;
+		int favCount=0;
 		@SuppressWarnings("unchecked")
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
 		if(user!=null){
+			Map<String,Object> map=new HashMap<String, Object>();
+			map.put("user_id",user.get("id"));
+			List<Map<String, Object>> collection = productService.getColByUid(map);
 			cartCountNumber = productService.getProductCartCount((int)user.get("id"));
+			favCount=productService.getNumberOfCol((int)user.get("id"));
+			session.setAttribute("collection",collection);
+			System.out.println(collection);
 		}
 		session.setAttribute("cartCountNumber", cartCountNumber);
+		session.setAttribute("favCount",favCount);
+
 		session.setAttribute("page",request.getParameter("page"));
 		return "index";
 	}
@@ -97,11 +106,14 @@ public class ProductController {
 	@RequestMapping("addCard")
 	public void addCard(String color,String size,String pid,String count,String uid,HttpSession session){
 		Map<String, Object> map =new HashMap<String, Object>();
+
 		map.put("product_color_id", color);
 		map.put("product_size_id", size);
 		map.put("product_id", pid);
 		map.put("product_user_id", uid);
 		map.put("product_card_count", count);
+
+
 		System.out.println(map);
 		if (!productService.updateProductCount(map)){
 			productService.addProductCard(map);
@@ -110,7 +122,10 @@ public class ProductController {
 		@SuppressWarnings("unchecked")
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
 		List<Map<String, Object>> userCart = productService.getProductCardByUid((int)user.get("id"));
+        int cartCountNumber=productService.getProductCartCount((int)user.get("id"));
 		session.setAttribute("userCart", userCart);
+		session.setAttribute("cartCountNumber",cartCountNumber);
+        System.out.println(cartCountNumber);
 	}
 	 /**
 	 		* Description: 把评论添加到数据库
@@ -515,13 +530,15 @@ public class ProductController {
         map.put("product_id",request.getParameter("product_id"));
         map.put("user_id",id);
 
-        //if (!productService.colIsExit(map)){
+        if (productService.colIsExit(map)<=0){
 			productService.addLikeProduct(map);
-		//}
+		}
 
         List<Map<String, Object>> collection = productService.getColByUid(map);
-
+        int favCount=0;
+        favCount=collection.size();
         session.setAttribute("colletion",collection);
+        session.setAttribute("favCount",favCount);
     }
 
 

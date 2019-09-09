@@ -219,7 +219,12 @@ public class ProductServiceImpl implements ProductService{
     }
 
     //查询收藏表是否已有该物品
-    public boolean colIsExit(Map<String,Object> map){
-	    return (productDao.colIsExit(map)>0);
+    public int colIsExit(Map<String,Object> map){
+	    return (productDao.colIsExit(map));
     }
+
+	//查询收藏数目
+	public int getNumberOfCol(int user_id){
+		return productDao.getNumberOfCol(user_id);
+	}
 }

@@ -255,4 +255,8 @@
 	<select id="colIsExit" parameterType="hashmap" resultType="int">
 		select COUNT(*) from collection where product_id = #{product_id} and user_id=#{user_id};
 	</select>
+
+    <select id="getNumberOfCol" parameterType="int" resultType="int">
+        select count(*) from collection where user_id=#{user_id};
+    </select>
 </mapper>
