@@ -53,11 +53,9 @@ public class ProductController {
 			cartCountNumber = productService.getProductCartCount((int)user.get("id"));
 			favCount=productService.getNumberOfCol((int)user.get("id"));
 			session.setAttribute("collection",collection);
-			System.out.println(collection);
 		}
 		session.setAttribute("cartCountNumber", cartCountNumber);
 		session.setAttribute("favCount",favCount);
-
 		session.setAttribute("page",request.getParameter("page"));
 		return "index";
 	}
@@ -537,7 +535,7 @@ public class ProductController {
         List<Map<String, Object>> collection = productService.getColByUid(map);
         int favCount=0;
         favCount=collection.size();
-        session.setAttribute("colletion",collection);
+        session.setAttribute("collection",collection);
         session.setAttribute("favCount",favCount);
     }
 

@@ -23,7 +23,11 @@
 
         <div class="header-cart-content flex-w js-pscroll">
             <ul class="header-cart-wrapitem w-full">
-                <c:forEach items="${colletion}" var="c">
+                <c:forEach items="${collection}" var="c">
+                    <script>
+                        console.log(${colletion});
+                        console.log("123123");
+                    </script>
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img"  >
                             <a href="shoping-cart.html">
