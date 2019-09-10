@@ -311,7 +311,7 @@ public class ProductController {
 		Map<String,Object> map1 =new HashMap<String, Object>();
 		map1.put("product_pay_no","111");
 		map1.put("product_user_id",id.toString());
-		System.out.println(map1);
+
 		productService.updateCartStateAndPayNoByUid(map1);
 
 //		productService.deleteCartByUid((int)id);
@@ -320,6 +320,11 @@ public class ProductController {
 
         List<Map<String, Object>> orderDetail = productService.getUserOrderDetailByUid((int)user.get("id"));
         model.addAttribute("orderDetail", orderDetail);
+
+		List<Map<String, Object>> collection = productService.getColByUid(map);
+		int favCount=0;
+		favCount=collection.size();
+		session.setAttribute("favCount",favCount);
 
 		return "account";
 	}

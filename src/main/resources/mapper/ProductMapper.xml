@@ -224,7 +224,7 @@
 	</insert>
 
 	<update id="updateProductCount" parameterType="hashmap">
-		update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id};
+		update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id} and product_cart_state=0;
 	</update>
 
 	<select id="getProductCartCount" parameterType="int" resultType="int">
