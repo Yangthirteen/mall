@@ -25,11 +25,11 @@
             <ul class="header-cart-wrapitem w-full">
                 <c:forEach items="${collection}" var="c">
                     <li class="header-cart-item flex-w flex-t m-b-12">
+                        <button onclick="deleate1(${c.product_id})">
                         <div class="header-cart-item-img"  >
-                            <button onclick="deleate1(${c.product_id})">
                                 <img src="${c.product_img}" alt="IMG" >
-                            </button>
                         </div>
+                        </button>
 
                         <div class="header-cart-item-txt p-t-8">
                             <a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">

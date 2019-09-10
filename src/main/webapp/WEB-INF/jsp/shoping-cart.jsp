@@ -41,29 +41,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="part/header.jsp"></jsp:include>
 
 	<!-- Cart -->
-    <div class="wrap-header-cart js-panel-cart">
-        <div class="s-full js-hide-cart"></div>
+	<div id="cart" class="wrap-header-cart js-panel-cart">
+		<div class="s-full js-hide-cart"></div>
 
-        <div class="header-cart flex-col-l p-l-65 p-r-25">
-            <div class="header-cart-title flex-w flex-sb-m p-b-8">
+		<div class="header-cart flex-col-l p-l-65 p-r-25">
+			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
 					购物车
 				</span>
 
-                <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-                    <i class="zmdi zmdi-close"></i>
-                </div>
-            </div>
+				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+					<i class="zmdi zmdi-close"></i>
+				</div>
+			</div>
 
-            <div class="header-cart-content flex-w js-pscroll">
-                <ul class="header-cart-wrapitem w-full">
+			<div class="header-cart-content flex-w js-pscroll">
+				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
+							<a href="shoping-cart.html">
 							<div class="header-cart-item-img">
-								<a href="shoping-cart.html">
+
 									<img src="${c.product_card_img}" alt="IMG" >
-								</a>
+
 							</div>
+							</a>
 
 							<div class="header-cart-item-txt p-t-8">
 								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
@@ -78,26 +80,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</c:forEach>
 
 
-                </ul>
+				</ul>
 
-                <div class="w-full">
-                    <!-- <div class="header-cart-total w-full p-tb-40">
-                        Total: $75.00
-                    </div> -->
+				<div class="w-full">
+					<!-- <div class="header-cart-total w-full p-tb-40">
+						Total: $75.00
+					</div> -->
 
-                    <div class="header-cart-buttons flex-w w-full">
-                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                            购物车
-                        </a>
+					<div class="header-cart-buttons flex-w w-full">
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+							购物车
+						</a>
 
-                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                            支付
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+							支付
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
     <!-- favorite -->
     <jsp:include page="favorite.jsp"></jsp:include>
@@ -177,7 +179,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</div>
 							</div>
 
-							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10" onclick="location.reload()">
+							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10" onclick="location.reload(true)">
 								更新购物车
 							</div>
 						</div>
@@ -221,15 +223,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</span>
 
 									<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" placeholder="请输入您的收货姓名">
+										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" id="get1" onblur="try125()"  name="name" placeholder="请输入您的收货姓名">
 									</div>
 
 									<div class="bor8 bg0 m-b-12">
-										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="请输入您的详细地址">
+										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" id="get2" onblur="try175()" name="address" placeholder="请输入您的详细地址">
 									</div>
 
 									<div class="bor8 bg0 m-b-22">
-										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="tel" name="phone" placeholder="请输入您的联系方式">
+										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="tel" id="get3" onblur="try200()" name="phone" placeholder="请输入您的联系方式">
 									</div>
 									
 									<div class="flex-w">
@@ -255,11 +257,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</span>
 							</div>
 						</div>
-						<input type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" value="支付" onclick="codepay.html" >
+						<input type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" value="支付" onclick="try01();codepay.html" >
 						
 					</div>
 				</div>
-				
 			</div>
 		</div>
 	</form>
@@ -292,7 +293,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				minimumResultsForSearch: 20,
 				dropdownParent: $(this).next('.dropDownSelect2')
 			});
-		})
+		});
+		function try125() {
+			var get1 = $('#get1').val();
+			if (get1==""){
+				alert("姓名不能为空")
+			}
+			console.log("svsdvsdvds")
+		}
+		function try175() {
+			var get2 = $('#get2').val();
+			if (get2==""){
+				alert("地址不能为空")
+			}
+		}
+		function try200() {
+			var get3 = $('#get3').val();
+			if (get3==""){
+				alert("联系方式不能为空")
+			}
+		}
+		function try01() {
+            var get1 = $('#get1').val();
+            var get2 =$('#get2').val();
+            var  get3 =$('#get3').val();
+            if(get1==""||get2==""||get3==""){
+            	alert("输入不能为空")
+			}
+		}
 	</script>
 <!--===============================================================================================-->
 	<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
@@ -369,6 +397,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 	function Calculate(e){
 		e.preventDefault();
+	}
+	//function pay(){
+		//utotal();
+		//var price=$('#total').text()
+	//	$.port("codepay.html",function(){
+	//	})
+	//}
+	function Card(pid){
+		var uid=$('#uid').val();
+		var color=$('#color').val();
+		var size=$('#size').val();
+		var count=$('#num-product').val();
+		var cartCountNumber=$()
+		//$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
+
+		//});
+		$.ajax({
+			url : "addCard.html",
+			data : {"color":color,"size":size,"pid":pid,"count":count,"uid":uid},
+			type : 'post',
+			async: true,
+			complete:function(e){
+				$('#menu').load("" + ' #menu >*',function(){
+					jQuery.getScript("js/cart.js")
+				})
+				$('#cart').load("" + ' #cart >*',function(){
+					jQuery.getScript("js/cart.js")
+				});
+
+			}});
+		//window.location.reload();
+
+
+	}
+	function fav(pid){
+
+		$.ajax({
+			url : "addLikeProduct.html",
+			data : {"product_id":pid},
+			type : 'post',
+			async: true,
+			complete:function(e){
+				$('#fav').load("" + ' #fav >*',function(){
+					jQuery.getScript("js/cart.js")
+				})
+				$('#menu').load("" + ' #menu >*',function(){
+					jQuery.getScript("js/cart.js")
+				})
+			}
+		});
+
+	}
+	function deleate1(did) {
+		$.ajax({
+			url : "deleteProFroCol.html",
+			data : {"product_id":did},
+			type : 'post',
+			async: true,
+			complete:function(e){
+				$('#fav').load("" + ' #fav >*',function(){
+					jQuery.getScript("js/cart.js")
+				})
+				$('#menu2').load("" + ' #menu2 >*',function(){
+					jQuery.getScript("js/cart.js")
+				})
+				swal("", "删除成功", "success");
+			}
+		});
 	}
 
 	

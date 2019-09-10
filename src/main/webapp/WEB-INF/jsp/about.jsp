@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="part/header.jsp"></jsp:include>
 
 	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
+	<div id="cart" class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
@@ -59,12 +59,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
-							<div class="header-cart-item-img"  >
-								<a href="shoping-cart.html">
-									<img src="${c.product_card_img}" alt="IMG" >
-								</a>
-							</div>
+							<a href="shoping-cart.html">
+							<div class="header-cart-item-img">
 
+									<img src="${c.product_card_img}" alt="IMG" >
+
+							</div>
+							</a>
 							<div class="header-cart-item-txt p-t-8">
 								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
 										${c.product_name}
@@ -73,9 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
-								<script>
 
-								</script>
 							</div>
 						</li>
 					</c:forEach>
@@ -242,6 +241,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				ps.update();
 			})
 		});
+		function Card(pid){
+			var uid=$('#uid').val();
+			var color=$('#color').val();
+			var size=$('#size').val();
+			var count=$('#num-product').val();
+			var cartCountNumber=$()
+			//$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
+
+			//});
+			$.ajax({
+				url : "addCard.html",
+				data : {"color":color,"size":size,"pid":pid,"count":count,"uid":uid},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#menu').load("" + ' #menu >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#cart').load("" + ' #cart >*',function(){
+						jQuery.getScript("js/cart.js")
+					});
+
+				}});
+			//window.location.reload();
+
+
+		}
+		function fav(pid){
+
+			$.ajax({
+				url : "addLikeProduct.html",
+				data : {"product_id":pid},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#fav').load("" + ' #fav >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#menu').load("" + ' #menu >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+				}
+			});
+
+		}
+		function deleate1(did) {
+			$.ajax({
+				url : "deleteProFroCol.html",
+				data : {"product_id":did},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#fav').load("" + ' #fav >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#menu2').load("" + ' #menu2 >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					swal("", "删除成功", "success");
+				}
+			});
+		}
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>

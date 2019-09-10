@@ -67,12 +67,11 @@
             <ul class="header-cart-wrapitem w-full">
                 <c:forEach items="${userCart}" var="c">
                     <li class="header-cart-item flex-w flex-t m-b-12">
+                        <a href="shoping-cart.html">
                         <div class="header-cart-item-img"  >
-                            <a href="shoping-cart.html">
                                 <img src="${c.product_card_img}" alt="IMG" >
-                            </a>
                         </div>
-
+                        </a>
                         <div class="header-cart-item-txt p-t-8">
                             <a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
                                     ${c.product_name}

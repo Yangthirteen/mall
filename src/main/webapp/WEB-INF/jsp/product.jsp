@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
+	<div id="cart" class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
@@ -67,11 +67,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
+							<a href="shoping-cart.html">
 							<div class="header-cart-item-img">
-								<a href="shoping-cart.html">
+
 									<img src="${c.product_card_img}" alt="IMG" >
-								</a>
+
 							</div>
+							</a>
 
 							<div class="header-cart-item-txt p-t-8">
 								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
@@ -81,9 +83,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
+
 							</div>
 						</li>
 					</c:forEach>
+
 
 				</ul>
 
@@ -683,6 +687,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					$('#menu2').load("" + ' #menu2 >*',function(){
 						jQuery.getScript("js/cart.js")
 					})
+					swal("", "删除成功", "success");
 				}
 			});
 		}

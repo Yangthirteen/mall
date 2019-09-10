@@ -41,29 +41,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="part/header.jsp"></jsp:include>
 
 	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
+	<div id="cart" class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
 			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					Your Cart
+					购物车
 				</span>
 
 				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
 					<i class="zmdi zmdi-close"></i>
 				</div>
 			</div>
-			
+
 			<div class="header-cart-content flex-w js-pscroll">
 				<ul class="header-cart-wrapitem w-full">
 					<c:forEach items="${userCart}" var="c">
 						<li class="header-cart-item flex-w flex-t m-b-12">
+							<a href="shoping-cart.html">
 							<div class="header-cart-item-img">
-								<a href="shoping-cart.html">
+
 									<img src="${c.product_card_img}" alt="IMG" >
-								</a>
+
 							</div>
+							</a>
 
 							<div class="header-cart-item-txt p-t-8">
 								<a href="productDetail.html?did=${c.product_dimg_id}&&pid=${c.product_id}&&ptid=${c.product_type_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
@@ -73,13 +75,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<span class="header-cart-item-info">
 									${c.product_card_count} x $${c.product_price}
 								</span>
+
 							</div>
 						</li>
 					</c:forEach>
-					
-				
+
+
 				</ul>
-				
+
 				<div class="w-full">
 					<!-- <div class="header-cart-total w-full p-tb-40">
 						Total: $75.00
@@ -87,11 +90,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
+							购物车
 						</a>
 
 						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
+							支付
 						</a>
 					</div>
 				</div>
@@ -235,6 +238,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				ps.update();
 			})
 		});
+		function Card(pid){
+			var uid=$('#uid').val();
+			var color=$('#color').val();
+			var size=$('#size').val();
+			var count=$('#num-product').val();
+			var cartCountNumber=$()
+			//$.post("addCard.html",{"color":color,"size":size,"pid":pid,"count":count,"uid":uid},function(data){
+
+			//});
+			$.ajax({
+				url : "addCard.html",
+				data : {"color":color,"size":size,"pid":pid,"count":count,"uid":uid},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#menu').load("" + ' #menu >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#cart').load("" + ' #cart >*',function(){
+						jQuery.getScript("js/cart.js")
+					});
+
+				}});
+			//window.location.reload();
+
+
+		}
+		function fav(pid){
+
+			$.ajax({
+				url : "addLikeProduct.html",
+				data : {"product_id":pid},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#fav').load("" + ' #fav >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#menu').load("" + ' #menu >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+				}
+			});
+
+		}
+		function deleate1(did) {
+			$.ajax({
+				url : "deleteProFroCol.html",
+				data : {"product_id":did},
+				type : 'post',
+				async: true,
+				complete:function(e){
+					$('#fav').load("" + ' #fav >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					$('#menu2').load("" + ' #menu2 >*',function(){
+						jQuery.getScript("js/cart.js")
+					})
+					swal("", "删除成功", "success");
+				}
+			});
+		}
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
