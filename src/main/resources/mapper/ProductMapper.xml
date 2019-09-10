@@ -70,7 +70,7 @@
 	</update>
 
 	<insert id="addOrder" parameterType="hashmap">
-		INSERT INTO `mall`.`product_order` (`product_user_id`,`product_pay_no` ,`product_pay_state`,`product_order_state`, `product_order_address`, `product_order_name`, `product_order_telphone`,`product_order_total`,`product_order_createDate`) VALUES (#{product_user_id},111,1,0, #{product_order_address}, #{product_order_name}, #{product_order_telphone},#{product_order_total},#{product_order_createDate})
+		INSERT INTO `mall`.`product_order` (`product_user_id`,`product_pay_no` ,`product_pay_state`,`product_order_state`, `product_order_address`, `product_order_name`, `product_order_telphone`,`product_order_total`,`product_order_createDate`) VALUES (#{product_user_id},#{product_pay_no},1,0, #{product_order_address}, #{product_order_name}, #{product_order_telphone},#{product_order_total},#{product_order_createDate})
 	</insert>
 
 	<select id="updatePay" parameterType="hashmap" resultType="Integer">
@@ -106,7 +106,6 @@
 		AND cd.product_user_id = o.product_user_id
 		AND cd.product_pay_no = o.product_pay_no
 		AND cd.product_user_id = #{product_user_id}
-		group by cd.product_card_id
 	</select>
 
 	<select id="getOrderDetail" resultType="hashmap">
@@ -224,7 +223,7 @@
 	</insert>
 
 	<update id="updateProductCount" parameterType="hashmap">
-		update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id} and product_cart_state=0;
+		update product_card set product_card_count=#{product_card_count}+product_card_count where product_user_id=#{product_user_id} and product_id=#{product_id} and product_cart_state = 0
 	</update>
 
 	<select id="getProductCartCount" parameterType="int" resultType="int">

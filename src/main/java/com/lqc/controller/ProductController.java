@@ -57,6 +57,19 @@ public class ProductController {
 		session.setAttribute("cartCountNumber", cartCountNumber);
 		session.setAttribute("favCount",favCount);
 		session.setAttribute("page",request.getParameter("page"));
+		Date now = new Date();
+		int hour = now.getHours();
+		if(hour<6){
+			session.setAttribute("word","夜深了，早些休息 w(ﾟДﾟ)w    ");
+		} else if (hour<12) {
+			session.setAttribute("word","上午好 （づ￣3￣）づ╭❤～    ");
+		}else if (hour<13) {
+			session.setAttribute("word","中午好 (๑•̀ㅂ•́)و✧    ");
+		}else if (hour<18) {
+			session.setAttribute("word","下午好 ︿(￣︶￣)︿    ");
+		}else{
+			session.setAttribute("word","晚上好 ♪(^∇^*)    ");
+		}
 		return "index";
 	}
 	 /**
@@ -297,19 +310,21 @@ public class ProductController {
 
 
 		Map<String,Object> map =new HashMap<String, Object>();
+		int randomNumber = (int)((Math.random()*9+1)*10000);
 		map.put("product_order_address",request.getParameter("address"));
 		map.put("product_order_name",request.getParameter("name"));
 		map.put("product_order_telphone",request.getParameter("phone"));
 		map.put("product_order_createDate",date3);
 		map.put("product_user_id",id);
 		map.put("product_order_total",productService.sumOfCart((int)id));
+		map.put("product_pay_no",randomNumber);
 
 		System.out.println(session.getAttribute("address"));
 		System.out.println(map);
 		productService.addOrder(map);
 
 		Map<String,Object> map1 =new HashMap<String, Object>();
-		map1.put("product_pay_no","111");
+		map1.put("product_pay_no",randomNumber);
 		map1.put("product_user_id",id.toString());
 
 		productService.updateCartStateAndPayNoByUid(map1);
@@ -337,21 +352,8 @@ public class ProductController {
 		Map<String,Object> user=(Map<String, Object>) session.getAttribute("user");
 		List<Map<String, Object>> orderDetail = productService.getUserOrderDetailByUid((int)user.get("id"));
 		model.addAttribute("orderDetail", orderDetail);
-		Date now = new Date();
-		int hour = now.getHours();
-		if(hour<6){
-			session.setAttribute("word","夜深了，早些休息 w(ﾟДﾟ)w    ");
-		} else if (hour<12) {
-			session.setAttribute("word","上午好 （づ￣3￣）づ╭❤～    ");
-		}else if (hour<13) {
-			session.setAttribute("word","中午好 (๑•̀ㅂ•́)و✧    ");
-		}else if (hour<18) {
-			session.setAttribute("word","下午好 ︿(￣︶￣)︿    ");
-		}else{
-			session.setAttribute("word","晚上好 ♪(^∇^*)    ");
-		}
+
 		return "account";
-		
 	}
 	 /**
 	 		* Description: 获取订单信息 to orderManager

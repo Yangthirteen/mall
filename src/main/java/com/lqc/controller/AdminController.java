@@ -4,7 +4,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.lqc.service.ProductService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,10 +17,15 @@ import com.lqc.service.AdminService;
 
 import com.lqc.utils.TelUtils;
 
+import java.util.List;
+import java.util.Map;
+
 @Controller
 public class AdminController {
 	@Resource
 	AdminService  adminService = null;
+	@Resource
+	ProductService productService =null;
 	 /**
 	 		* Description: 获取手机验证码
 	 		* @param tel 手机号
@@ -46,7 +53,7 @@ public class AdminController {
 	 		* Description: 管理员登入
 	 	*/
 	@PostMapping("ToAdminLogin")
-	public String getAdmin(@RequestParam("amobile") String amobile, @RequestParam("apwd") String apwd, HttpSession session, HttpServletRequest request){
+	public String getAdmin(@RequestParam("amobile") String amobile, @RequestParam("apwd") String apwd, HttpSession session, HttpServletRequest request, Model model){
 		String adminLoginMsg = null;
 		Admin admin = new Admin();
 		admin.setAmobile(amobile);
@@ -58,6 +65,8 @@ public class AdminController {
 		}
 		else{
 			session.setAttribute("admin",admin);
+			List<Map<String, Object>> orderDetail = productService.getOrderDetail();
+			model.addAttribute("orderDetail", orderDetail);
 			return "orderManager";
 		}
 	}
@@ -66,11 +75,13 @@ public class AdminController {
 	 * description：转到管理员登录界面
 	 */
 	@RequestMapping("adminSignOn")
-	public String adminSignOn(HttpSession session){
+	public String adminSignOn(HttpSession session ,Model model){
 		if(session.getAttribute("admin")==null){
 			return "adminLogin";
 		}
 		else{
+			List<Map<String, Object>> orderDetail = productService.getOrderDetail();
+			model.addAttribute("orderDetail", orderDetail);
 			return "orderManager";
 		}
 	}

@@ -40,6 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- Header -->
 	<jsp:include page="part/header.jsp"></jsp:include>
 
+	<jsp:include page="favorite.jsp"></jsp:include>
 	<!-- Cart -->
 	<div id="cart" class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>

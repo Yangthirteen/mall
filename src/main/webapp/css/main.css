@@ -1938,13 +1938,13 @@ input.num-product::-webkit-inner-spin-button {
 
 .table-shopping-cart .column-4 {
   width: 145px;
-  text-align: right;
+  text-align: left;
 }
 
 .table-shopping-cart .column-5 {
-  width: 172px;
+  width: 145px;
   padding-right: 50px;
-  text-align: right;
+  text-align: left;
   font-size: 16px;
 }
 
